@@ -16,6 +16,10 @@ import {HomeComponent} from './home/home.component';
         loadChildren: './features/beaches/beaches.module#FeatureBeachesModule'
       },
       {
+        path: 'reservations',
+        loadChildren: './features/reservations/reservations.module#FeatureReservationsModule'
+      },
+      {
         path: '**',
         component: PageNotFoundComponent
       }
