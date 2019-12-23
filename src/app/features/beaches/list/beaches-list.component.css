@@ -24,3 +24,26 @@ div .rounded-circle p {
 .cursor-pointer {
   cursor: pointer;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.container2 {
+  position: relative;
+  max-width: auto;
+  margin: 0 auto;
+}
+
+.container2 img {vertical-align: middle;}
+
+.container2 .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding: 10px;
+}
+
