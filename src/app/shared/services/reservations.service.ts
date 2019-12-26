@@ -11,7 +11,7 @@ export class ReservationService {
   constructor(private http: HttpClient) {
   }
 
-  getReservation = () => {
+  getReservations = () => {
     return this.http.get<Array<Reservation>>(this.baseUrl);
   };
 

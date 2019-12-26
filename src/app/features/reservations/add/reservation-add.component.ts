@@ -22,10 +22,11 @@ export class ReservationAddComponent {
     private router: Router
   ) {
     this.reservationForm = this.formBuilder.group({
+      idBeach: [null],
       date: [null, Validators.required],
-      name: ['', Validators.compose([Validators.minLength(5), Validators.maxLength(30), Validators.required])],
+      name_reservation: ['', Validators.compose([Validators.minLength(3), Validators.maxLength(30), Validators.required])],
       email: ['', Validators.compose([Validators.required, Validators.maxLength(40)])],
-      phone: [null, Validators.compose([Validators.required, Validators.maxLength(14)])],
+      mobile: ['', Validators.compose([Validators.required, Validators.maxLength(14)])],
       quantity: [null, Validators.required],
       half_day: [false]
     });

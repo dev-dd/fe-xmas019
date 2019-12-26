@@ -39,11 +39,8 @@
         </div>
       </div>
       <div class="card-footer text-right">
-        <!--
-        <a [routerLink]="['../../edit', beach.idBeach]" class="btn btn-success">EDIT</a>
-        <button class="btn btn-danger ml-2" type="submit" (click)="deleteBeach(beach.idBeach)">DELETE</button>-->
         <div *ngIf="beach.beach_service">
-          <a [routerLink]="['/reservations/add', beach.idBeach]" class="btn btn-success">PRENOTA</a>
+          <a [routerLink]="['/reservations/add']" class="btn btn-success">PRENOTA</a>
         </div>
       </div>
     </div>

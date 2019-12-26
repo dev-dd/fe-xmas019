@@ -17,7 +17,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="booking-form">
-						<form (ngSubmit)="addReservation()">
+						<form [formGroup]="reservationForm" (ngSubmit)="addReservation()">
 							<div class="form-group">
 								<div class="form-checkbox">
 									<label for="half_day">
@@ -34,7 +34,7 @@
 									</div>
 								</div>
 								<div class="col-md-6">
-                  <div class="form-group">
+                  					<div class="form-group">
 										<span class="form-label">Data</span>
 										<input class="form-control" type="date" required>
 									</div>
@@ -67,8 +67,19 @@
 									</div>
 								</div>
 								<div class="col-md-3">
+									<div class="form-group">
+										<span class="form-label">idBeach</span>
+										<select class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+								<div class="col-md-3">
 									<div class="form-btn">
-										<button class="submit-btn">prenota</button>
+										<button type="submit" class="submit-btn">prenota</button>
 									</div>
 								</div>
 							</div>

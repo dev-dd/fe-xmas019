@@ -1,10 +1,10 @@
 export interface Reservation {
   idReservation?: number;
-  idBeach: number;
+  idBeach?: number;
   date?: Date;
-  name?: string;
+  name_reservation?: string;
   email?: string;
-  phone?: number;
+  mobile?: number;
   quantity?: number;
   half_day?: boolean
 }
