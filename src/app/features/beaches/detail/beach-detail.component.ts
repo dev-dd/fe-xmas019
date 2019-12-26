@@ -25,11 +25,11 @@ export class BeachDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getBeachDetail(this.route.snapshot.params.id);
+    this.getBeachDetail(this.route.snapshot.params.idBeach);
   }
 
-  getBeachDetail(id) {
-    this.beachService.getBeachById(id)
+  getBeachDetail(idBeach) {
+    this.beachService.getBeachById(idBeach)
       .subscribe((data: Beach) => {
         this.beach = data;
         this.getWeather();
@@ -37,8 +37,8 @@ export class BeachDetailComponent implements OnInit {
       });
   }
 
-  deleteBeach(id) {
-    this.beachService.deleteBeach(id)
+  deleteBeach(idBeach) {
+    this.beachService.deleteBeach(idBeach)
       .subscribe(data => {
         this.router.navigate(['/beaches']);
       }, (err) => {

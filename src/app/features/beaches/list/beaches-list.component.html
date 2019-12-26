@@ -61,7 +61,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr class="table-element cursor-pointer text-center" *ngFor="let beach of beaches.slice(0, 10)" (click)="goToDetails(beach.id)">
+    <tr class="table-element cursor-pointer text-center" *ngFor="let beach of beaches.slice(0, 10)" (click)="goToDetails(beach.idBeach)">
       <td>{{ beach.name }}</td>
       <td>{{ beach.city + ' (' + beach.province + ')' }}</td>
       <td>{{ beach.latitude + ', ' + beach.longitude }}</td>

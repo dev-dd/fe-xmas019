@@ -1,7 +1,7 @@
 import {CurrentWeather} from './Meteo';
 
 export interface Beach {
-  id?: number;
+  idBeach?: number;
   name?: string;
   city?: string;
   province?: string;
@@ -17,6 +17,7 @@ export interface Beach {
   weatherIcon?: string;
   weather: CurrentWeather;
   traffic?: number;
+  beach_service?: boolean;
 }
 
 export const Orientation = {

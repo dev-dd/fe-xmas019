@@ -10,6 +10,10 @@
           {{ beach.name }} - {{beach.city}} ({{beach.province}})
         </h1>
       </div>
+      <div class="card-header text-right">
+        <a [routerLink]="['../../edit', beach.idBeach]" class="btn btn-success">EDIT</a>
+        <button class="btn btn-danger ml-2" type="submit" (click)="deleteBeach(beach.idBeach)">DELETE</button>
+      </div>
       <div class="card-body">
         <div class="row">
           <div class="col-md-6">
@@ -28,14 +32,19 @@
             <span class="mr-2"><i class="mr-1 fas {{getInfoClass(beach.park)}}"></i>Parcheggio</span>
             <span class="mr-2"><i class="mr-1 fas {{getInfoClass(beach.food_service)}}"></i>Ristorazione</span>
             <span class="mr-2"><i class="mr-1 fas {{getInfoClass(beach.lifeguard)}}"></i>Bagnino</span>
+            <span class="mr-2"><i class="mr-1 fas {{getInfoClass(beach.beach_service)}}"></i>Servizio spiaggia</span>
             <span class="mr-2"><i class="mr-1 fas {{getInfoClass(beach.dogs_allowed)}}"></i>Cani ammessi</span>
             <span class="mr-2"><i class="mr-1 fas {{getInfoClass(beach.summer_crowding)}}"></i>Affollamento estivo</span>
           </div>
         </div>
       </div>
       <div class="card-footer text-right">
-        <a [routerLink]="['../../edit', beach.id]" class="btn btn-success">EDIT</a>
-        <button class="btn btn-danger ml-2" type="submit" (click)="deleteBeach(beach.id)">DELETE</button>
+        <!--
+        <a [routerLink]="['../../edit', beach.idBeach]" class="btn btn-success">EDIT</a>
+        <button class="btn btn-danger ml-2" type="submit" (click)="deleteBeach(beach.idBeach)">DELETE</button>-->
+        <div *ngIf="beach.beach_service">
+          <a [routerLink]="['/reservations/add', beach.idBeach]" class="btn btn-success">PRENOTA</a>
+        </div>
       </div>
     </div>
   </div>

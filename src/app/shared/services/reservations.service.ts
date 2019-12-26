@@ -15,15 +15,15 @@ export class ReservationService {
     return this.http.get<Array<Reservation>>(this.baseUrl);
   };
 
-  getReservationById = (id) => {
-    return this.http.get<Reservation>(`${this.baseUrl}/${id}`);
+  getReservationByEmail = (email) => {
+    return this.http.get<Reservation>(`${this.baseUrl}/${email}`);
   };
 
   addReservation = (reservation: Reservation) => {
     return this.http.post<Reservation>(this.baseUrl, { ...reservation });
   };
 
-  deleteReservation = (id) => {
-    return this.http.delete(`${this.baseUrl}/${id}`);
+  deleteReservation = (email) => {
+    return this.http.delete(`${this.baseUrl}/${email}`);
   };
 }

@@ -15,8 +15,8 @@ export class BeachService {
     return this.http.get<Array<Beach>>(this.baseUrl);
   };
 
-  getBeachById = (id) => {
-    return this.http.get<Beach>(`${this.baseUrl}/${id}`);
+  getBeachById = (idBeach) => {
+    return this.http.get<Beach>(`${this.baseUrl}/${idBeach}`);
   };
 
   insertBeach = (beach: Beach) => {
@@ -24,10 +24,10 @@ export class BeachService {
   };
 
   editBeach = (beach: Beach) => {
-    return this.http.put(`${this.baseUrl}/${beach.id}`, { ...beach });
+    return this.http.put(`${this.baseUrl}/${beach.idBeach}`, { ...beach });
   };
 
-  deleteBeach = (id) => {
-    return this.http.delete(`${this.baseUrl}/${id}`);
+  deleteBeach = (idBeach) => {
+    return this.http.delete(`${this.baseUrl}/${idBeach}`);
   };
 }

@@ -27,11 +27,11 @@ export class BeachEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadData(this.route.snapshot.params.id);
+    this.loadData(this.route.snapshot.params.idBeach);
   }
 
-  loadData(id) {
-    this.beachService.getBeachById(id)
+  loadData(idBeach) {
+    this.beachService.getBeachById(idBeach)
       .subscribe((data: Beach) => {
         this.beach = data;
         this.pathPreview = data.photo;
@@ -44,6 +44,7 @@ export class BeachEditComponent implements OnInit {
           orientation: [data.orientation, Validators.required],
           park: [data.park],
           food_service: [data.food_service],
+          beach_service: [data.beach_service],
           lifeguard: [data.lifeguard],
           dogs_allowed: [data.dogs_allowed],
           summer_crowding: [data.summer_crowding],
@@ -60,7 +61,7 @@ export class BeachEditComponent implements OnInit {
       return;
     }
 
-    const beach: Beach = {...this.beachForm.value, id: this.beach.id };
+    const beach: Beach = {...this.beachForm.value, idBeach: this.beach.idBeach };
 
     this.beachService.editBeach(beach)
       .subscribe(result => {

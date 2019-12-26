@@ -16,7 +16,7 @@ const routes: Routes = [
     component: BeachesListComponent,
   },
   {
-    path: 'details/:id',
+    path: 'details/:idBeach',
     component: BeachDetailComponent,
   },
   {
@@ -24,10 +24,9 @@ const routes: Routes = [
     component: BeachCreateComponent,
   },
   {
-    path: 'edit/:id',
+    path: 'edit/:idBeach',
     component: BeachEditComponent,
-  },
-
+  }
 ];
 
 

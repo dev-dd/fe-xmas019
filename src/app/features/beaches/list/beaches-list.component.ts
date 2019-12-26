@@ -82,7 +82,7 @@ export class BeachesListComponent implements OnInit {
 
   getWeatherIconPath = (icon: string): string => `https://www.weatherbit.io/static/img/icons/${icon}.png`;
   // getTrafficClass = (value: number) => value >= 80 ? 'bg-danger' : (value > 70 && value < 80 ? 'bg-warning' : 'bg-success');
-  goToDetails = (id: number) => this.router.navigate([`beaches/details/${id}`]);
+  goToDetails = (idBeach: number) => this.router.navigate([`beaches/details/${idBeach}`]);
   getInfoClass = (value: boolean) => value ? 'fa-check-circle text-success' : 'fa-times-circle text-danger';
   getOrientationArrow = (orientation: string) => {
     let direction;
