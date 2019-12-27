@@ -21,7 +21,7 @@
 							<div class="form-group">
 								<div class="form-checkbox">
 									<label for="half_day">
-										<input type="radio" id="half_day" name="reservation-type">
+										<input type="radio" id="half_day" formControlName="half_day" name="half_day" required>
 										<span></span>MEZZA GIORNATA
 									</label>
 								</div>
@@ -30,13 +30,13 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Nominativo</span>
-										<input class="form-control" type="text" placeholder="nome prenotazione" required>
+										<input class="form-control" type="text" formControlName="name_reservation" name="name_reservation" placeholder="nome prenotazione" required>
 									</div>
 								</div>
 								<div class="col-md-6">
                   					<div class="form-group">
 										<span class="form-label">Data</span>
-										<input class="form-control" type="date" required>
+										<input class="form-control" type="date" formControlName="date" name="date" required>
 									</div>
 								</div>
 							</div>
@@ -44,13 +44,13 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Email</span>
-										<input class="form-control" type="text" placeholder="email" required>
+										<input class="form-control" type="text" formControlName="email" name="email" placeholder="email" required>
 									</div>
 								</div>
 								<div class="col-md-6">
-									<div class="form-group">
+									<div class="form-group">					
 										<span class="form-label">Numero di telefono</span>
-										<input class="form-control" type="text" placeholder="telefono" required>
+										<input class="form-control" type="text" formControlName="mobile" name="mobile" placeholder="telefono" required>
 									</div>
 								</div>
 							</div>
@@ -58,10 +58,10 @@
 								<div class="col-md-3">
 									<div class="form-group">
 										<span class="form-label">Quantità</span>
-										<select class="form-control">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
+										<select class="form-control" formControlName="quantity" name="quantity" required>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
 										</select>
 										<span class="select-arrow"></span>
 									</div>
@@ -69,10 +69,10 @@
 								<div class="col-md-3">
 									<div class="form-group">
 										<span class="form-label">idBeach</span>
-										<select class="form-control">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
+										<select class="form-control" formControlName="idBeach" name="idBeach" required>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
 										</select>
 										<span class="select-arrow"></span>
 									</div>

@@ -4,7 +4,7 @@ export interface Reservation {
   date?: Date;
   name_reservation?: string;
   email?: string;
-  mobile?: number;
+  mobile?: string;
   quantity?: number;
   half_day?: boolean
 }

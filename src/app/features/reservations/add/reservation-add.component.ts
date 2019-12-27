@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Reservation} from '../../../shared/models/Reservation';
 import {ReservationService} from '../../../shared/services/reservations.service';
@@ -7,9 +7,9 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-reservation-add',
   templateUrl: './reservation-add.component.html',
-  styleUrls: ['./reservation-add.component.css']
+  styleUrls: ['./reservation-add.component.css'],
 })
-export class ReservationAddComponent {
+export class ReservationAddComponent{
 
   reservationForm: FormGroup;
   pathPreview = '';
@@ -22,8 +22,8 @@ export class ReservationAddComponent {
     private router: Router
   ) {
     this.reservationForm = this.formBuilder.group({
-      idBeach: [null],
-      date: [null, Validators.required],
+      idBeach: [null, Validators.required],
+      date: ['', Validators.required],
       name_reservation: ['', Validators.compose([Validators.minLength(3), Validators.maxLength(30), Validators.required])],
       email: ['', Validators.compose([Validators.required, Validators.maxLength(40)])],
       mobile: ['', Validators.compose([Validators.required, Validators.maxLength(14)])],
@@ -44,12 +44,12 @@ export class ReservationAddComponent {
 
     this.reservationService.addReservation(reservation)
       .subscribe(result => {
-        this.router.navigate(['reservations/list']);
+        this.router.navigate(['reservations/add']);
       }, error => {
         console.error(error);
       });
 
     console.log(this.reservationForm.value);
+   }
 
-  };
-}
+  }
