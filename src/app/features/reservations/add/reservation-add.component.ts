@@ -23,7 +23,7 @@ export class ReservationAddComponent {
     private router: Router,
   ) {
     this.reservationForm = this.formBuilder.group({
-      idBeach: [null, Validators.required],
+      idBeach: [this.activatedRoute.snapshot.params.idBeach, Validators.required],
       date: ['', Validators.required],
       name_reservation: ['', Validators.compose([Validators.minLength(3), Validators.maxLength(30), Validators.required])],
       email: ['', Validators.compose([Validators.required, Validators.maxLength(40)])],
@@ -45,7 +45,7 @@ export class ReservationAddComponent {
 
     this.reservationService.addReservation(reservation)
       .subscribe(result => {
-        this.router.navigate(['reservations/add']);
+        this.router.navigate(['beaches/list']);
       }, error => {
         console.error(error);
       });
