@@ -1,15 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Reservation} from '../../../shared/models/Reservation';
 import {ReservationService} from '../../../shared/services/reservations.service';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-reservation-add',
   templateUrl: './reservation-add.component.html',
   styleUrls: ['./reservation-add.component.css'],
 })
-export class ReservationAddComponent{
+export class ReservationAddComponent {
 
   reservationForm: FormGroup;
   pathPreview = '';
@@ -19,7 +19,8 @@ export class ReservationAddComponent{
   constructor(
     private formBuilder: FormBuilder,
     private reservationService: ReservationService,
-    private router: Router
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
   ) {
     this.reservationForm = this.formBuilder.group({
       idBeach: [null, Validators.required],
@@ -27,12 +28,12 @@ export class ReservationAddComponent{
       name_reservation: ['', Validators.compose([Validators.minLength(3), Validators.maxLength(30), Validators.required])],
       email: ['', Validators.compose([Validators.required, Validators.maxLength(40)])],
       mobile: ['', Validators.compose([Validators.required, Validators.maxLength(14)])],
-      quantity: [null, Validators.required],
+      quantity: [1],
       half_day: [false]
     });
-   }
-  
-   addReservation = () => {
+  }
+
+  addReservation = () => {
     this.submitted = true;
 
     if (this.reservationForm.invalid) {
@@ -50,6 +51,5 @@ export class ReservationAddComponent{
       });
 
     console.log(this.reservationForm.value);
-   }
-
-  }
+   };
+}

@@ -11,7 +11,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'add',
+    path: 'add/:idBeach',
     component: ReservationAddComponent,
   }
 ];

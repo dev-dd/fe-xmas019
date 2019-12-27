@@ -21,7 +21,7 @@
 							<div class="form-group">
 								<div class="form-checkbox">
 									<label for="half_day">
-										<input type="radio" id="half_day" formControlName="half_day" name="half_day" required>
+										<input type="checkbox" id="half_day" formControlName="half_day" name="half_day">
 										<span></span>MEZZA GIORNATA
 									</label>
 								</div>
@@ -58,7 +58,7 @@
 								<div class="col-md-3">
 									<div class="form-group">
 										<span class="form-label">Quantità</span>
-										<select class="form-control" formControlName="quantity" name="quantity" required>
+										<select class="form-control" formControlName="quantity" name="quantity">
 											<option value="1">1</option>
 											<option value="2">2</option>
 											<option value="3">3</option>
@@ -69,14 +69,15 @@
 								<div class="col-md-3">
 									<div class="form-group">
 										<span class="form-label">idBeach</span>
-										<select class="form-control" formControlName="idBeach" name="idBeach" required>
+										<input class="form-control" type="number" formControlName="idBeach" name="idBeach" value="{{this.activatedRoute.snapshot.params.idBeach}}" required>
+										<!--<select class="form-control" formControlName="idBeach" name="idBeach" required>
 											<option value="1">1</option>
 											<option value="2">2</option>
 											<option value="3">3</option>
 										</select>
-										<span class="select-arrow"></span>
+										<span class="select-arrow"></span>-->
 									</div>
-								</div>
+								</div>-->
 								<div class="col-md-3">
 									<div class="form-btn">
 										<button type="submit" class="submit-btn">prenota</button>

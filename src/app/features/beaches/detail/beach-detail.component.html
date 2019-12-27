@@ -40,7 +40,7 @@
       </div>
       <div class="card-footer text-right">
         <div *ngIf="beach.beach_service">
-          <a [routerLink]="['/reservations/add']" class="btn btn-success">PRENOTA</a>
+          <a [routerLink]="['/reservations/add', beach.idBeach]" class="btn btn-success">PRENOTA</a>
         </div>
       </div>
     </div>
