@@ -13,6 +13,13 @@ const routes: Routes = [
   {
     path: 'add/:idBeach',
     component: ReservationAddComponent,
+<<<<<<< Updated upstream
+=======
+  },
+  {
+    path: 'upd/:email',
+    component: ReservationUpdComponent,
+>>>>>>> Stashed changes
   }
 ];
 

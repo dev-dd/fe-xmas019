@@ -14,6 +14,7 @@ import {TrafficService} from '../../../shared/services/traffic.service';
 })
 export class BeachDetailComponent implements OnInit {
   beach: Beach;
+  public email: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -54,6 +55,13 @@ export class BeachDetailComponent implements OnInit {
         console.error(err);
       });
   };
+
+  /*getEmail = (idRes: string) => {
+    let email = document.getElementById("idRes").innerText;
+    console.log(document.getElementById("idRes").innerText);
+    this.router.navigate([`reservations/upd/${email}`]);
+  } */
+  goToReservationDetails = (email) => this.router.navigate([`reservations/upd/${email}`]);
 
 /*  getTraffic = () => {
     this.trafficService.getTraffic(this.beach.city)

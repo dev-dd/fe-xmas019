@@ -1,5 +1,4 @@
 <div *ngIf="beach" class="container">
-
   <div class="row col-md-8 mt-4">
     <div class="card w-100">
       <div class="card-header">
@@ -40,7 +39,17 @@
       </div>
       <div class="card-footer text-right">
         <div *ngIf="beach.beach_service">
+          
           <a [routerLink]="['/reservations/add', beach.idBeach]" class="btn btn-success">PRENOTA</a>
+<<<<<<< Updated upstream
+=======
+          
+          <input type="email" [(ngModel)]="email" class="text-left"><br/>  
+            
+          <button class="text-left btn btn-success" (click)="goToReservationDetails(email)">Visualizza prenotazione</button>
+          <!--<a [routerLink]="['/reservations/upd', 'myFunction()']" class="text-left btn btn-success">GESTISCI PRENOTAZIONE</a>-->
+          
+>>>>>>> Stashed changes
         </div>
       </div>
     </div>
