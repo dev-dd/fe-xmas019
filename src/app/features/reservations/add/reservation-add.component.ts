@@ -23,7 +23,7 @@ export class ReservationAddComponent {
     private router: Router,
   ) {
     this.reservationForm = this.formBuilder.group({
-      idBeach: [this.activatedRoute.snapshot.params.idBeach, Validators.required],
+      idBeach: [this.activatedRoute.snapshot.params.idBeach, Validators.required],  //idBeach is passed automatically
       date: ['', Validators.required],
       name_reservation: ['', Validators.compose([Validators.minLength(3), Validators.maxLength(30), Validators.required])],
       email: ['', Validators.compose([Validators.required, Validators.maxLength(40)])],
