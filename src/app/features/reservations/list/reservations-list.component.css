@@ -1,0 +1,12 @@
+
+.section {
+	position: relative;
+	height: 100vh;
+}
+
+#booking {
+	font-family: 'PT Sans', sans-serif;
+	background-image: url('https://villas.byunique.com/components/com_jomcomdev/images/!erp/2798/269224-Love-Pumpkin-at-COMO-Parrot-Cay-76317865-H1-Love_Pumpkin_-_Guest_Villa_-_Beach_Service.jpg');
+	background-size: cover;
+	background-position: center;
+}
