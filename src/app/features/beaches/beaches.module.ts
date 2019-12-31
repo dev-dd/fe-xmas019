@@ -1,8 +1,6 @@
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-
-
 import {CommonModule} from '@angular/common';
 import {FeatureBeachesRoutingModule} from './beaches.routing';
 import {BeachesListComponent} from './list/beaches-list.component';
