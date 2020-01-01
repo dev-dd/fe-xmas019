@@ -56,11 +56,6 @@ export class BeachDetailComponent implements OnInit {
       });
   };
 
-  /*getEmail = (idRes: string) => {
-    let email = document.getElementById("idRes").innerText;
-    console.log(document.getElementById("idRes").innerText);
-    this.router.navigate([`reservations/upd/${email}`]);
-  } */
   goToReservationDetails = (email) => this.router.navigate([`reservations/upd/${email}`]);
 
 /*  getTraffic = () => {

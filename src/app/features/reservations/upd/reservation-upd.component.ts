@@ -20,16 +20,17 @@ export class ReservationUpdComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getReservationDetail(this.route.snapshot.params.email);
+    //this.getReservationDetail(this.route.snapshot.params.email);
   }
 
-  getReservationDetail(email) {
+  /*
+  getReservationDetail(email: string) {
     this.reservationService.getReservationByEmail(email)
       .subscribe((data: Reservation) => {
         this.reservation = data;
         console.log(data);
       });
-  }
+  }*/
 
   deleteReservation(email) {
     this.reservationService.deleteReservation(email)

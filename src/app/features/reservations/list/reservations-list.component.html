@@ -12,10 +12,12 @@
 <body>
 	<div id="list" class="section">
 		<div class="section-center">
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
-            <div class="booking-form">
-                reservations-list works!
+            <div class="reservations-list" (click)="loadReservations(date)">
+              <span class="form-label">Seleziona una data</span>
+              <input class="form-control" type="date" [(ngModel)]="date" required>
+              <button type="submit" class="submit-btn">Visualizza prenotazioni</button>
             </div>
           </div>
         </div>

@@ -20,22 +20,37 @@ export class ReservationsListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    //this.loadReservations();
   }
 
-  loadComponent = () => {
-    this.reservationService.getReservations()
+  //getDate = (date: Date) => this.router.navigate([`beaches/details/${date}`]);
+
+  
+  loadReservations = (date: Date) => {
+    this.reservationService.getReservationsByDate(date)
       .subscribe((resReservations: Array<Reservation>) => {
-          for (const reservation of resReservations) {
-            // this.getTraffic(beach);
-            //this.sortBeaches();
-          }
 
           this.reservations = resReservations;
           this.loaded = true;
+          console.log(this.reservations);
         }, err => {
           console.error(err);
           this.loaded = true;
         }
       );
   };
+  /*
+  loadReservations = () => {
+  this.reservationService.getReservations()
+    .subscribe((resReservations: Array<Reservation>) => {
+
+        this.reservations = resReservations;
+        this.loaded = true;
+        console.log(this.reservations);
+      }, err => {
+        console.error(err);
+        this.loaded = true;
+      }
+    );
+  };*/
 }

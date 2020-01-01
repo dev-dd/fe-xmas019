@@ -15,9 +15,14 @@ export class ReservationService {
     return this.http.get<Array<Reservation>>(this.baseUrl);
   };
 
-  getReservationByEmail = (email) => {
+  /*
+  getReservationByEmail = (email: string) => {
     return this.http.get<Reservation>(`${this.baseUrl}/${email}`);
-  };
+  };*/
+
+  getReservationsByDate = (date: Date) => {
+    return this.http.get<Array<Reservation>>(`${this.baseUrl}/${date}`);
+  }
 
   addReservation = (reservation: Reservation) => {
     return this.http.post<Reservation>(this.baseUrl, { ...reservation });
