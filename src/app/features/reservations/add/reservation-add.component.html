@@ -15,49 +15,46 @@
 	<div id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
+				<header>
+					<h4>prenota il tuo posto in spiaggia</h4>
+				</header>
 				<div class="row">
 					<div class="booking-form">
 						<form [formGroup]="reservationForm" (ngSubmit)="addReservation()">
-							<div class="form-group">
-								<div class="form-checkbox">
-									<label for="half_day">
-										<input type="checkbox" id="half_day" formControlName="half_day" name="half_day">
-										<span></span>MEZZA GIORNATA
-									</label>
-								</div>
-							</div>
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<div class="form-group">
 										<span class="form-label">Nominativo</span>
 										<input class="form-control" type="text" formControlName="name_reservation" name="name_reservation" placeholder="nome prenotazione" required>
 									</div>
 								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<span class="form-label">Email</span>
+										<input class="form-control" type="text" formControlName="email" name="email" placeholder="email" required>
+									</div>
+								</div>
+							</div>
+							<div class="row">
 								<div class="col-md-6">
-                  					<div class="form-group">
+									<div class="form-group">					
+										<span class="form-label">Numero di telefono</span>
+										<input class="form-control" type="text" formControlName="mobile" name="mobile" placeholder="telefono" required>
+									</div>
+							  	</div>
+								<div class="col-md-6">
+									<div class="form-group">
 										<span class="form-label">Data</span>
 										<input class="form-control" type="date" formControlName="date" name="date" required>
 									</div>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">Email</span>
-										<input class="form-control" type="text" formControlName="email" name="email" placeholder="email" required>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">					
-										<span class="form-label">Numero di telefono</span>
-										<input class="form-control" type="text" formControlName="mobile" name="mobile" placeholder="telefono" required>
-									</div>
-								</div>
-							</div>
-							<div class="row">
 								<div class="col-md-3">
 									<div class="form-group">
-										<span class="form-label">Quantità</span>
+										<span class="form-label">Quantità *</span>
 										<select class="form-control" formControlName="quantity" name="quantity">
 											<option value="1">1</option>
 											<option value="2">2</option>
@@ -66,18 +63,41 @@
 										<span class="select-arrow"></span>
 									</div>
 								</div>
-								<!--<div class="col-md-3">
-									<div class="form-group">
-										<span class="form-label">idBeach</span>
-										<input class="form-control" type="number" formControlName="idBeach" name="idBeach" value="{{this.activatedRoute.snapshot.params.idBeach}}" required>
-										<select class="form-control" formControlName="idBeach" name="idBeach" required>
-											<option value="{{this.activatedRoute.snapshot.params.idBeach}}" selected>1</option>
+								<div class="col-md-6">
+									<div class="form-group" > 
+									  <span class="form-label">Scegli una spiaggia</span>
+									  <select class="form-control" formControlName="idBeach" name="idBeach" required>
+										  <option *ngFor="let beach of beaches" value="{{beach.idBeach}}">{{beach.name}}</option>
 										</select>
 									</div>
-								</div>-->
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<span class="form-label">Mezza giornata</span>
+										<div class="form-checkbox">
+											<label for="half_day">
+												<input type="checkbox" id="half_day" formControlName="half_day" name="half_day">
+												<span></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row col-md-12">
+								<div class="info">
+									<p>* un ombrellone e due lettini</p>
+								  </div>
+							</div>				
+							<div class="row">
 								<div class="col-md-3">
 									<div class="form-btn">
-										<button type="submit" class="submit-btn">prenota</button>
+										<button type="reset" class="reset-btn">Cancella</button>
+									</div>
+								</div>
+								<div class="col-md-3"></div>
+								<div class="col-md-6" >
+									<div class="form-btn">
+										<button type="submit" class="submit-btn">Prenota</button>
 									</div>
 								</div>
 							</div>

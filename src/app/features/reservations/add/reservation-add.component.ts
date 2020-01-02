@@ -1,16 +1,20 @@
-import {Component } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Reservation} from '../../../shared/models/Reservation';
-import {ReservationService} from '../../../shared/services/reservations.service';
-import {Router, ActivatedRoute} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, /*ActivatedRoute*/ } from '@angular/router';
+
+import { Reservation } from '../../../shared/models/Reservation';
+import { ReservationService } from '../../../shared/services/reservations.service';
+import { Beach } from '../../../shared/models/Beach';
+import { BeachService } from '../../../shared/services/beaches.service';
+
 
 @Component({
   selector: 'app-reservation-add',
   templateUrl: './reservation-add.component.html',
   styleUrls: ['./reservation-add.component.css'],
 })
-export class ReservationAddComponent {
-
+export class ReservationAddComponent implements OnInit {
+  beaches: Array<Beach> = [];
   reservationForm: FormGroup;
   pathPreview = '';
 
@@ -19,11 +23,16 @@ export class ReservationAddComponent {
   constructor(
     private formBuilder: FormBuilder,
     private reservationService: ReservationService,
-    private activatedRoute: ActivatedRoute,
+    private beachService: BeachService,
+    //private activatedRoute: ActivatedRoute, //componente da sbloccare in caso si voglia passare l'idBeach in automatico
     private router: Router,
   ) {
     this.reservationForm = this.formBuilder.group({
-      idBeach: [this.activatedRoute.snapshot.params.idBeach, Validators.required],  //idBeach is passed automatically
+      /* porzione di codice che passa in automatico l'id della spiaggia passando dal dettaglio di questa */
+      //idBeach: [this.activatedRoute.snapshot.params.idBeach, Validators.required],  //idBeach is passed automatically
+     
+      //in questa versione, l'utente può scegliere direttamente la spiaggia da una select list 
+      idBeach: [null, Validators.required],
       date: ['', Validators.required],
       name_reservation: ['', Validators.compose([Validators.minLength(3), Validators.maxLength(30), Validators.required])],
       email: ['', Validators.compose([Validators.required, Validators.maxLength(40)])],
@@ -32,6 +41,20 @@ export class ReservationAddComponent {
       half_day: [false]
     });
   }
+
+  ngOnInit() {
+    this.listOfBeaches();
+  }
+
+  listOfBeaches = () => {
+    this.beachService.getBeaches()
+    .subscribe((resBeaches: Array<Beach>)=> {
+      this.beaches = resBeaches;
+    }, err => {
+      console.error(err);
+    }
+    );
+  };
 
   addReservation = () => {
     this.submitted = true;
@@ -45,7 +68,9 @@ export class ReservationAddComponent {
 
     this.reservationService.addReservation(reservation)
       .subscribe(result => {
-        this.router.navigate(['beaches/list']);
+        alert("La tua prenotazione è avvenuta con successo!");
+        this.reservationForm.reset();
+        this.router.navigate(['reservations/add']);
       }, error => {
         console.error(error);
       });

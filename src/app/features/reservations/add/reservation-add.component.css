@@ -11,6 +11,18 @@
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
+header {
+	font-family: 'PT Sans', sans-serif;
+	text-transform: uppercase;
+	text-shadow: 2px 2px 4px #f3f2f2;
+	margin-left: 100px;
+}
+
+.info {
+	text-transform: uppercase;
+	font-size: 8px;
+	color: #fff;
+  }
 
 #booking {
 	font-family: 'PT Sans', sans-serif;
@@ -20,8 +32,9 @@
 }
 
 .booking-form {
+	width: 55%;
 	background: rgba(0, 0, 0, 0.6); 
-	padding: 40px;
+	padding: 25px;
 	border-radius: 6px;
 }
 
@@ -75,7 +88,7 @@
 	text-align: center;
 	pointer-events: none;
 	color: rgba(0, 0, 0, 0.3);
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .booking-form select.form-control+.select-arrow:after {
@@ -109,6 +122,8 @@
 	padding-left: 30px;
 	font-weight: 400;
 	color: #fff;
+	text-transform: uppercase;
+	font-size: 10px;
 }
 
 .booking-form .form-checkbox label+label {
@@ -117,7 +132,7 @@
 
 .booking-form .form-checkbox input+span {
 	position: absolute;
-	left: 2px;
+	left: 60px;
 	top: 4px;
 	width: 20px;
 	height: 20px;
@@ -156,7 +171,7 @@
 
 .booking-form .submit-btn {
 	color: #fff;
-	background-color: #3ef23e;
+	background-color: rgba(0, 128, 0, 0.808); /*#1f8d0ae3;*/
 	font-weight: 400;
 	height: 50px;
 	font-size: 14px;
@@ -168,7 +183,23 @@
 	transition: 0.2s all;
 }
 
+.booking-form .reset-btn {
+	color: #fff;
+	background-color: rgba(250, 39, 39, 0.808);
+	font-weight: 400;
+	height: 50px;
+	font-size: 13px;
+	border: none;
+	width: 100%;
+	border-radius: 40px;
+	text-transform: uppercase;
+	-webkit-transition: 0.2s all;
+	transition: 0.2s all;
+}
+
 .booking-form .submit-btn:hover,
-.booking-form .submit-btn:focus {
+.booking-form .reset-btn:hover,
+.booking-form .submit-btn:focus,
+.booking-form .reset-btn:focus {
 	opacity: 0.9;
 }

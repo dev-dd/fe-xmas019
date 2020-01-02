@@ -39,7 +39,9 @@
       </div>
       <div class="card-footer text-right">
         <div *ngIf="beach.beach_service">
-          <a [routerLink]="['/reservations/add', beach.idBeach]" class="btn btn-success">PRENOTA</a>
+          <!-- In quest'ancora commentata passavamo l'idBeach nella url per averlo in automatico nella prenotazione -->
+          <!--<a [routerLink]="['/reservations/add', beach.idBeach]" class="btn btn-success">PRENOTA</a>-->
+          <a [routerLink]="['/reservations/add']" class="btn btn-success">PRENOTA</a>
           <input type="email" [(ngModel)]="email" class="text-left"><br/>  
           <button class="text-left btn btn-success" (click)="goToReservationDetails(email)">Visualizza prenotazione</button>
           <!--<a [routerLink]="['/reservations/upd', 'myFunction()']" class="text-left btn btn-success">GESTISCI PRENOTAZIONE</a>-->

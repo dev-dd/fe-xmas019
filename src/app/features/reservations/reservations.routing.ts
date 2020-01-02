@@ -15,8 +15,13 @@ const routes: Routes = [
     path: 'list',
     component: ReservationsListComponent,
   },
+  /* versione del progetto in cui la prenotazione passava attravero il dettaglio della spiaggia
   {
     path: 'add/:idBeach',
+    component: ReservationAddComponent,
+  },*/
+  {
+    path: 'add',  //la prenorazione è slegata dal dettaglio della spiaggia
     component: ReservationAddComponent,
   },
   {
