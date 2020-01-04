@@ -2,29 +2,107 @@
   cursor: pointer;
 }
 
-* {
-  box-sizing: border-box;
+html, body {
+  padding:0;
+  margin:0;
+  font-family: 'PT Sans', sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+div h1 {
+  background:rgba(0,0,0,0.6);
+  color:whitesmoke;
+  padding: 12px 32px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 1.6rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.btn {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  height: 2.5rem;
+  width: 15rem;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  background:rgba(0,0,0,0.6);
+  transform: translateX(-50%);
+  font-weight: bold;
+}
+
+.split.left .btn:hover, .split.right .btn:hover {
+  display: block;
+  position: absolute;
+  color: black;
+  background:rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center; 
 }
 
 .container {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
+  height:100vh;
+  display: flex;
 }
 
-.container img {vertical-align: middle;}
-
-.container .content {
+.split {
   position: absolute;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 48px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 97%;
-  padding: 5px;
-  background: rgb(204, 255, 255); /* Fallback color */
-  background: rgba(204, 255, 255, 0.5); /* Black background with 0.5 opacity */
-  color: rgb(255, 255, 255);
-  text-shadow: 2px 2px 4px #000000;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split.left {
+  left:0;
+  background: url('https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260') center center no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+.split.right {
+  right:0;
+  background: url('https://www.gruppocontas.it/wp-content/uploads/2017/11/STABILIMENTO-BALNEARE.jpg') center center no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+.split.right .split.left {
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .5s;
+}
+
+@media(max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    width: 12rem;
+  }
+}
+
+@media(max-height: 700px) {
+  .btn {
+    top: 70%;
+  }
 }

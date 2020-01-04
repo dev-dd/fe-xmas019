@@ -6,6 +6,7 @@ export interface Reservation {
   email?: string;
   mobile?: string;
   quantity?: number;
-  half_day?: boolean
+  half_day?: boolean;
+  beach_name: string;
 }
 

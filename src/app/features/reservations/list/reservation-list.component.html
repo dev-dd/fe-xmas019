@@ -1,0 +1,58 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Amministrazione prenotazioni</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"><i class="fa fa-home"></i><span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" (change)="filterReservations()">
+        <input class="form-control" type="date" name="date" [(ngModel)]="filterDate">
+      </form>
+      <button class="{{getButtonState()}}" (click)="resetFilter()">Resetta filtro</button>
+    </div>
+  </nav>
+</div>
+
+<div class="container" *ngIf="loaded && reservations.length > 0">
+  <table class="table table-hover text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Spiaggia</th>
+        <th scope="col">Data</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Quantità</th>
+        <th scope="col">Mezza giornata</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="!isFilterActive">
+      <tr *ngFor="let reserv of reservations" (click)="goToDetail(reserv.idReservation)">
+        <th scope="row">{{ reserv.beach_name }}</th>
+        <td>{{ reserv.date }}</td>
+        <td>{{ reserv.name_reservation }}</td>
+        <td>{{ reserv.quantity }}</td>
+        <td><i class="{{getInfoClass(reserv.half_day)}}" aria-hidden="true"></i></td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="isFilterActive && filteredRes.length > 0">
+    <tr *ngFor="let reserv of filteredRes" (click)="goToDetail(reserv.idReservation)">
+      <th scope="row">{{ reserv.beach_name }}</th>
+      <td>{{ reserv.date }}</td>
+      <td>{{ reserv.name_reservation }}</td>
+      <td>{{ reserv.quantity }}</td>
+      <td><i class="{{getInfoClass(reserv.half_day)}}" aria-hidden="true"></i></td>
+    </tr>
+    </tbody>
+    <p *ngIf="isFilterActive && filteredRes.length === 0">
+      Zebra
+    </p>
+  </table>
+</div>
+<div *ngIf="loaded && reservations.length === 0">
+  <p>Non è presente alcuna prenotazione</p>
+</div>

@@ -10,14 +10,13 @@
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
 </head>
-
+<header>
+	<a class="nav-link" href="#"><i class="fa fa-home"></i> Back Home </a>
+</header>
 <body>
 	<div id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
-				<header>
-					<h4>prenota il tuo posto in spiaggia</h4>
-				</header>
 				<div class="row">
 					<div class="booking-form">
 						<form [formGroup]="reservationForm" (ngSubmit)="addReservation()">

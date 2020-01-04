@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {FeatureReservationsRoutingModule} from './reservations.routing';
 import {ReservationAddComponent} from './add/reservation-add.component';
-import { ReservationsListComponent } from './list/reservations-list.component';
+import { ReservationListComponent } from './list/reservation-list.component';
 import { ReservationUpdComponent } from './upd/reservation-upd.component';
 import {ReservationService} from '../../shared/services/reservations.service';
 import {BeachService} from '../../shared/services/beaches.service';
@@ -15,7 +15,7 @@ import {SortService} from '../../shared/services/sort.service';
 @NgModule({
   declarations: [
     ReservationAddComponent,
-    ReservationsListComponent,
+    ReservationListComponent,
     ReservationUpdComponent
   ],
   imports: [
