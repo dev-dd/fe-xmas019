@@ -20,6 +20,8 @@ export class ReservationListComponent implements OnInit {
   filteredRes: Reservation[] = [];
   isFilterActive = false;
   filterDate: Date;
+  filterBeach: string;
+  filterBox = 0;
 
   constructor(
     private reservationService: ReservationService,
@@ -41,7 +43,7 @@ export class ReservationListComponent implements OnInit {
         for (const reserv of this.reservations) {
           for (const beach of this.beaches) {
             if (reserv.idBeach === beach.idBeach) {
-                reserv.beach_name = beach.name;
+              reserv.beach_name = beach.name;
             }
           }
         }
@@ -74,10 +76,10 @@ export class ReservationListComponent implements OnInit {
   //   return this.name;
   // }
 
-  filterReservations = () => {
-    console.log('filterReservations works! ' + this.filterDate);
+  filterReservationsByDate = () => {
+    console.log('filterReservationsByDate works! ' + this.filterDate);
 
-    if (this.filterDate) {
+    if (!this.filterDate) {
       return this.resetFilter();
     }
 
@@ -85,6 +87,25 @@ export class ReservationListComponent implements OnInit {
 
     for (const reserv of this.reservations) {
       if (reserv.date === this.filterDate) {
+        this.filteredRes.push(reserv);
+      }
+    }
+    this.isFilterActive = true;
+    this.router.navigate([this]);
+    console.log(this.filteredRes);
+  }
+
+  filterReservationsByBeach = () => {
+    console.log('filterReservationsByBeach works! ' + this.filterBeach);
+
+    if (!this.filterBeach) {
+      return this.resetFilter();
+    }
+
+    this.filteredRes = [];
+
+    for (const reserv of this.reservations) {
+      if (reserv.beach_name === this.filterBeach) {
         this.filteredRes.push(reserv);
       }
     }
@@ -106,6 +127,10 @@ export class ReservationListComponent implements OnInit {
     } else {
       return 'btn btn-info my-2 my-sm-0';
     }
+  }
+
+  displayFilterBox = (choice) => {
+    this.filterBox = choice;
   }
 
   goToDetail = (idReservation: number) => this.router.navigate([`reservations/detail/${idReservation}`]);

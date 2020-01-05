@@ -1,16 +1,32 @@
-<!--
+<!-- VERSION WITH DYNAMIC SPLIT SCREEN -->
+
+<html lang="ita">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400">
 </head>
-<div class="container text-center">
-    <img src="https://www.mondosfondi.it/wp-content/uploads/2018/07/Sfondo-spiagge-Italia-Cala-Mariolu-Sardegna.jpg" 
-        id="header-image" alt="Beach img" style="width:100%;">
-    <div class="content cursor-pointer" routerLink='/beaches'>Beaching Around</div>
+<div class="container-fluid">
+    <div class="swipe swipe__left">
+        <div class="box">
+            <h2 class="b_head">Le spiagge più belle</h2>
+            <p>Riserva il tuo posto nelle migliori strutture della Sardegna</p>
+            <a href="reservations/add" class="btn btn__orange">Prenota</a>
+        </div>
+    </div>
+    <div class="swipe swipe__right">
+        <div class="box">
+            <h2 class="b_head">Gestionale prenotazioni </h2>
+            <p>Sincronizza ed ottimizza le prenotazioni ovunque ti trovi</p>
+            <a href="reservations/list" class="btn">Visualizza</a>
+        </div>
+    </div>
 </div>
--->
+</html>
 
-
-<!-- NEW VERSION WITH SPLIT SCREEN -->
+<!-- VERSION WITH NO DYNAMIC SPLIT SCREEN -->
+<!--
 <html lang="ita">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,3 +48,4 @@
     </div>
 </body>
 </html>
+-->

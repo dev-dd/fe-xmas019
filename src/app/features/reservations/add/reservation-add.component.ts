@@ -77,4 +77,6 @@ export class ReservationAddComponent implements OnInit {
 
     console.log(this.reservationForm.value);
    };
+
+   goToReservationDetails = (email) => this.router.navigate([`reservations/upd/${email}`]);
 }

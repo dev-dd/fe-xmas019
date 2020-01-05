@@ -1,0 +1,39 @@
+<div class="container">
+  <h2 class="my-4">Modifica prenotazione #{{reservation.idReservation}}</h2>
+
+  <div class="row">
+    <div class="col-md-8">
+      <form class="card p-3" [formGroup]="editResForm" (ngSubmit)="editReservation()">
+
+        <div class="form-row">
+          <!--
+          <div class="form-group col-md-4">
+            <label for="name">Nome</label>
+            <input class="form-control" type="text" id="name" formControlName="name" placeholder="Inserisci un nome"
+                   maxlength="30"/>
+            <span *ngIf="submitted && beachForm.controls.name && beachForm.controls.name.errors" class="text-danger">
+              Il nome è obbligatorio, max 30 caratteri.
+            </span>
+          </div>
+          -->
+
+          <!-- Custom element who takes some parameters and renders the component required -->
+          <app-form-input
+            class="form-group col-md-4" type="text" [group]="editResForm" label="Nome" attributeName="name_reservation"
+            placeholder="Nome" [maxLength]="40" [submitted]="submitted"
+            invalidFeedback="Campo richiesto.">
+          </app-form-input>
+
+          <app-form-input
+            class="form-group col-md-4" type="text" [group]="editResForm" label="Provincia" attributeName="province"
+            placeholder="Provincia" [maxLength]="2" [submitted]="submitted"
+            invalidFeedback="Campo richiesto, max 2 caratteri.">
+          </app-form-input>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</div>

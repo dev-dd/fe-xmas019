@@ -1,0 +1,89 @@
+a.navbar-brand {
+	font-family: 'PT Sans', sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+a.nav-link {
+	font-family: 'PT Sans', sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 16px;
+}
+
+a.nav-link:hover {
+	opacity: 0.8;
+}
+
+body {
+    padding-top: 50px;
+}
+
+.section {
+	position: relative;
+	height: 100vh;
+}
+
+.section .section-center {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	-webkit-transform: translateY(-55%);
+	transform: translateY(-55%);
+}
+
+#reservationUserDetails {
+	font-family: 'PT Sans', sans-serif;
+	background-image: url('https://images.pexels.com/photos/531035/pexels-photo-531035.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+	background-size: cover;
+	background-position: center;
+}
+
+.detail-form {
+	width: 55%;
+	background: rgba(0, 0, 0, 0.6); 
+	padding: 25px;
+	border-radius: 6px;
+}
+
+.detail-form .detail-group{
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.detail-form .form-control {
+	background-color: #fff;
+	height: 50px;
+	color: #191a1e;
+	border: none;
+	font-size: 16px;
+	font-weight: 400;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-radius: 40px;
+	padding: 0px 25px;
+}
+
+.detail-form label {
+	position: relative;
+	padding-top: 4px;
+	padding-left: 30px;
+	font-weight: 400;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 10px;
+}
+
+.detail-form .detail-label {
+	display: block;
+	margin-left: 20px;
+	margin-bottom: 5px;
+	font-weight: 400;
+	text-transform: uppercase;
+	line-height: 24px;
+	height: 24px;
+	font-size: 12px;
+	color: #fff;
+}

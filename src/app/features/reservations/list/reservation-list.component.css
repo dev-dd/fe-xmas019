@@ -1,7 +1,14 @@
 tbody {
-	cursor: pointer;
-  }
-  
-  nav {
-	height: 75px;
-  }
+  cursor: pointer;
+}
+
+nav {
+  padding: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #e3f2fd;
+}
+
+form {
+  margin-right: 1rem;
+}

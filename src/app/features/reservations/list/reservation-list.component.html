@@ -1,5 +1,9 @@
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+    <a id="home-button" class="text-secondary nav-link nav-item active" href="#">
+      <i class="fa fa-home"></i>
+    </a>
     <a class="navbar-brand">Amministrazione prenotazioni</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -7,12 +11,23 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#"><i class="fa fa-home"></i><span class="sr-only">(current)</span></a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Filtra per
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" (click)="displayFilterBox(1)">Data</a>
+            <a class="dropdown-item" (click)="displayFilterBox(2)">Spiaggia</a>
+          </div>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0" (change)="filterReservations()">
+      <form *ngIf="filterBox === 1" class="form-inline my-2 my-lg-0" (change)="filterReservationsByDate()">
         <input class="form-control" type="date" name="date" [(ngModel)]="filterDate">
+      </form>
+      <form *ngIf="filterBox === 2" class="form-inline my-2 my-lg-0" (change)="filterReservationsByBeach()">
+        <select class="custom-select" name="filterBeachSelect" [(ngModel)]="filterBeach">
+          <option *ngFor="let beach of beaches" value="{{beach.name}}">{{beach.name}}</option>
+        </select>
       </form>
       <button class="{{getButtonState()}}" (click)="resetFilter()">Resetta filtro</button>
     </div>
@@ -21,7 +36,7 @@
 
 <div class="container" *ngIf="loaded && reservations.length > 0">
   <table class="table table-hover text-center">
-    <thead class="thead-dark">
+    <thead class="thead-light">
       <tr>
         <th scope="col">Spiaggia</th>
         <th scope="col">Data</th>
@@ -48,10 +63,12 @@
       <td><i class="{{getInfoClass(reserv.half_day)}}" aria-hidden="true"></i></td>
     </tr>
     </tbody>
-    <p *ngIf="isFilterActive && filteredRes.length === 0">
-      Zebra
-    </p>
   </table>
+
+  <div class="container text-center" *ngIf="isFilterActive && filteredRes.length === 0">
+    Non è presente alcuna prenotazione secondo il criterio selezionato.
+  </div>
+
 </div>
 <div *ngIf="loaded && reservations.length === 0">
   <p>Non è presente alcuna prenotazione</p>

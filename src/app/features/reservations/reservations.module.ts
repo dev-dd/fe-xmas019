@@ -11,12 +11,14 @@ import {ReservationService} from '../../shared/services/reservations.service';
 import {BeachService} from '../../shared/services/beaches.service';
 import {CoreModule} from '../../core/core.module';
 import {SortService} from '../../shared/services/sort.service';
+import { ReservationDetailComponent } from './detail/reservation-detail.component';
 
 @NgModule({
   declarations: [
     ReservationAddComponent,
     ReservationListComponent,
-    ReservationUpdComponent
+    ReservationUpdComponent,
+    ReservationDetailComponent
   ],
   imports: [
     CoreModule,

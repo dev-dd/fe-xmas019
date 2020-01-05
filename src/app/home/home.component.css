@@ -1,3 +1,107 @@
+/* DYNAMIC SPLIT SCREEN */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0,0;
+  width: 100%;
+  font-family: 'PT Sans', sans-serif;
+  letter-spacing: 1px;
+}
+
+.container-fluid {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.swipe {
+  height: 100%;
+  flex-basis: 50%;
+  flex-shrink: 1;
+  transition: .5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swipe:hover {
+  flex-basis: 85%;
+}
+
+.swipe__left {
+  background: url("https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260") no-repeat center;
+  background-size: cover;
+}
+
+.swipe__right {
+  background: url("https://www.gruppocontas.it/wp-content/uploads/2017/11/STABILIMENTO-BALNEARE.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.box {
+  width: 100%;
+  max-width: 380px;
+  padding: 30px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+}
+
+.box .b_head {
+  font-size: 42px;
+  line-height: 44px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.box p {
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.btn {
+  display: block;  
+  color: #000;
+  text-decoration: none;
+  padding: 12px 45px;
+  text-align: center;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn__orange {
+  background: #ffbf00;
+  transition: .5s;
+}
+.btn__orange:hover {
+  background: #fff;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: block;
+    height: 100%;
+  }
+
+  .swipe {
+    flex-basis: 100%;
+    padding: 40px 0;
+  }
+}
+
+/* NO DYNAMIC SPLIT SCREEN */
+/*
 .cursor-pointer {
   cursor: pointer;
 }
@@ -106,3 +210,4 @@ h1 {
     top: 70%;
   }
 }
+*/
