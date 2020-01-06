@@ -27,64 +27,92 @@
         <div *ngIf="reservation; else loading" class="container-fluid">
             <div class="row">
                 <div class="detail-form">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="detail-group">
-                                <span class="detail-label">Nominativo della prenotazione: {{reservation.name_reservation}}</span> 
+                    <form [formGroup]="editReservationForm" (ngSubmit)="editReservation()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span class="form-label">Nominativo</span>
+                                    <input class="form-control" type="text" formControlName="name_reservation" name="name_reservation" placeholder="Mario Rossi" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="detail-group">
-                                <span class="detail-label"> Email: {{reservation.email}}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="detail-group">
-                                <span class="detail-label"> Numero di telefono: {{reservation.mobile}}</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="detail-group">
-                                <span class="detail-label"> Data: {{reservation.date}}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="detail-group">
-                                <span class="detail-label"> Quantità: {{reservation.quantity}}</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="detail-group">
-                                <span class="detail-label"> Nome spiaggia: {{reservation.idBeach}}</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="detail-group">
-                                <span class="detail-label"> Mezza giornata: {{reservation.half_day}}</span>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span class="form-label">Email</span>
+                                    <input class="form-control" type="email" formControlName="email" name="email" placeholder="mario.rossi@esempio.com" required>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
+                                <div class="form-group">					
+                                    <span class="form-label">Numero di telefono</span>
+                                    <input class="form-control" type="text" formControlName="mobile" name="mobile" placeholder="+393482792787" required>
+                                </div>
+                              </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="form-label">Data</span>
+                                    <input class="form-control" type="date" formControlName="date" name="date" min="2020-01-01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <span class="form-label">Quantità</span>
+                                <input type="number" formControlName="quantity" class="form-control" min="1" max="5">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <span class="form-label">Spiaggia</span>
+                                <select formControlName="idBeach" class="form-control">
+                                  <option *ngFor="let beach of beaches" value="{{beach.idBeach}}">{{beach.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <span class="form-label">Mezza giornata</span>
+                                    <div class="form-checkbox" *ngIf="reservation.half_day">
+                                        <label for="half_day">
+                                            <input type="checkbox" id="half_day" formControlName="half_day" name="half_day" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-checkbox" *ngIf="!reservation.half_day">
+                                        <label for="half_day">
+                                            <input type="checkbox" id="half_day" formControlName="half_day" name="half_day">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
                                 <div class="form-btn">
                                     <button class="btn btn-danger ml-2" type="submit" (click)="deleteReservation(reservation.email)">Elimina</button>
                                 </div>
                             </div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-6">
+                                <div class="form-btn">
+                                    <button type="submit" class="btn btn-primary"> Modifica </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
         <ng-template #loading>
-        <div class="container-fluid">
+        <div class="container-fluid text-center">
             <div class="row">
-                <div class="booking-form">
-                    <h3>Spiacente non ci sono prenotazioni corrispondenti a questa email!</h3>
+                <div class="noReservation">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Spiacente... non ci sono prenotazioni corrispondenti a questa email!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,4 +120,3 @@
     </div>
 </div>
 </body>
-

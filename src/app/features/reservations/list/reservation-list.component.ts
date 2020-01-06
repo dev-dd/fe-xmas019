@@ -12,7 +12,7 @@ import { Beach } from '../../../shared/models/Beach';
   styleUrls: ['./reservation-list.component.css']
 })
 export class ReservationListComponent implements OnInit {
-  reservations: Reservation[] = [];
+  public reservations: Reservation[] = [];
   loaded = false;
   beaches: Beach[] = [];
   // name: string;

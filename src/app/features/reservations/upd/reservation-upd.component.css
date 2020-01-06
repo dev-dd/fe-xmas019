@@ -1,3 +1,5 @@
+/* NAVBAR CSS */
+
 a.navbar-brand {
 	font-family: 'PT Sans', sans-serif;
 	color: #fff;
@@ -15,6 +17,8 @@ a.nav-link {
 a.nav-link:hover {
 	opacity: 0.8;
 }
+
+/* FORM CSS */
 
 body {
     padding-top: 50px;
@@ -41,14 +45,35 @@ body {
 	background-position: center;
 }
 
+p {
+	font-family: 'PT Sans', sans-serif;
+	text-align: center;
+	text-transform: uppercase; 
+	color: black;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 1px;
+}
+
+.noReservation {
+	width: 50%;
+	margin-top: 125px;
+	margin-left: 100px;
+	background: #ffbf00e5; 
+	padding-top: 15px;
+	padding-bottom: 0;
+	border-radius: 6px;
+}
+
 .detail-form {
-	width: 55%;
+	width: 50%;
+	margin-left: 100px;
 	background: rgba(0, 0, 0, 0.6); 
 	padding: 25px;
 	border-radius: 6px;
 }
 
-.detail-form .detail-group{
+.detail-form .form-group {
 	position: relative;
 	margin-bottom: 20px;
 }
@@ -66,17 +91,49 @@ body {
 	padding: 0px 25px;
 }
 
-.detail-form label {
-	position: relative;
-	padding-top: 4px;
-	padding-left: 30px;
-	font-weight: 400;
-	color: #fff;
-	text-transform: uppercase;
-	font-size: 10px;
+.detail-form .form-control::-webkit-input-placeholder {
+	color: rgba(82, 82, 84, 0.4);
 }
 
-.detail-form .detail-label {
+.detail-form .form-control:-ms-input-placeholder {
+	color: rgba(82, 82, 84, 0.4);
+}
+
+.detail-form .form-control::placeholder {
+	color: rgba(82, 82, 84, 0.4);
+}
+
+.detail-form input[type="date"].form-control:invalid {
+	color: rgba(82, 82, 84, 0.4);
+}
+
+.detail-form select.form-control {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.detail-form select.form-control+.select-arrow {
+	position: absolute;
+	right: 10px;
+	bottom: 6px;
+	width: 32px;
+	line-height: 32px;
+	height: 32px;
+	text-align: center;
+	pointer-events: none;
+	color: rgba(0, 0, 0, 0.3);
+	font-size: 12px;
+}
+
+.detail-form select.form-control+.select-arrow:after {
+	content: '\279C';
+	display: block;
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+.detail-form .form-label {
 	display: block;
 	margin-left: 20px;
 	margin-bottom: 5px;
@@ -86,4 +143,84 @@ body {
 	height: 24px;
 	font-size: 12px;
 	color: #fff;
+}
+
+.detail-form .form-checkbox input {
+	position: absolute !important;
+	margin-left: -9999px !important;
+	visibility: hidden !important;
+}
+
+.detail-form .form-checkbox label {
+	position: relative;
+	padding-top: 4px;
+	padding-left: 30px;
+	font-weight: 400;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 10px;
+}
+
+.detail-form .form-checkbox label+label {
+	margin-left: 15px;
+}
+
+.detail-form .form-checkbox input+span {
+	position: absolute;
+	left: 60px;
+	top: 4px;
+	width: 20px;
+	height: 20px;
+	background: rgb(255, 255, 255);
+	border-radius: 50%;
+}
+
+.detail-form .form-checkbox input+span:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 0px;
+	height: 0px;
+	border-radius: 50%;
+	background-color: #000000;
+	-webkit-transition: 0.2s all;
+	transition: 0.2s all;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.detail-form .form-checkbox input:not(:checked)+span:after {
+	opacity: 0;
+}
+
+.detail-form .form-checkbox input:checked+span:after {
+	opacity: 1;
+	width: 10px;
+	height: 10px;
+}
+
+.detail-form .form-btn {
+	margin-top: 27px;
+}
+
+.btn {
+	color: #fff;
+	font-weight: 400;
+	height: 50px;
+	font-size: 14px;
+	border: none;
+	width: 100%;
+	letter-spacing: 1px;
+	border-radius: 40px;
+	text-transform: uppercase;
+	-webkit-transition: 0.2s all;
+	transition: 0.2s all;
+}
+
+.booking-form .btn-primary:hover,
+.booking-form .btn-danger:hover,
+.booking-form .btn-primary:focus,
+.booking-form .btn-danger:focus {
+	opacity: 0.9;
 }

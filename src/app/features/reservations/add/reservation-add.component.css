@@ -1,3 +1,5 @@
+/* NAVBAR CSS */
+
 a.navbar-brand {
 	font-family: 'PT Sans', sans-serif;
 	color: #fff;
@@ -35,6 +37,8 @@ a.nav-link:hover {
 #searchByEmail {
 	margin-left: 100px;
 }
+
+/* FORM CSS */
 
 body {
  padding-top: 50px;
@@ -215,6 +219,7 @@ body {
 	width: 100%;
 	border-radius: 40px;
 	text-transform: uppercase;
+	letter-spacing: 1px;
 	-webkit-transition: 0.2s all;
 	transition: 0.2s all;
 }
@@ -228,6 +233,7 @@ body {
 	border: none;
 	width: 100%;
 	border-radius: 40px;
+	letter-spacing: 1px;
 	text-transform: uppercase;
 	-webkit-transition: 0.2s all;
 	transition: 0.2s all;

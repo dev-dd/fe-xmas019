@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, /*ActivatedRoute*/ } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { Reservation } from '../../../shared/models/Reservation';
 import { ReservationService } from '../../../shared/services/reservations.service';
 import { Beach } from '../../../shared/models/Beach';
 import { BeachService } from '../../../shared/services/beaches.service';
-
 
 @Component({
   selector: 'app-reservation-add',
@@ -28,7 +27,7 @@ export class ReservationAddComponent implements OnInit {
     private router: Router,
   ) {
     this.reservationForm = this.formBuilder.group({
-      /* porzione di codice che passa in automatico l'id della spiaggia passando dal dettaglio di questa */
+      /* portion of code that automatically passes the id of the beach passing through the detail of this */
       //idBeach: [this.activatedRoute.snapshot.params.idBeach, Validators.required],  //idBeach is passed automatically
      
       //in questa versione, l'utente può scegliere direttamente la spiaggia da una select list 
@@ -36,16 +35,17 @@ export class ReservationAddComponent implements OnInit {
       date: ['', Validators.required],
       name_reservation: ['', Validators.compose([Validators.minLength(3), Validators.maxLength(30), Validators.required])],
       email: ['', Validators.compose([Validators.required, Validators.maxLength(40)])],
-      mobile: ['', Validators.compose([Validators.required, Validators.maxLength(14)])],
-      quantity: [1],
-      half_day: [false]
+      mobile: ['', Validators.compose([Validators.required, Validators.maxLength(16)])],
+      quantity: [1],      //default value if the user doesn't change it
+      half_day: [false]   //default value if the user doesn't change it
     });
   }
 
   ngOnInit() {
-    this.listOfBeaches();
+    this.listOfBeaches();     //loads all beaches when the component is launched
   }
 
+  /* This function loads all the beaches */
   listOfBeaches = () => {
     this.beachService.getBeaches()
     .subscribe((resBeaches: Array<Beach>)=> {
@@ -56,6 +56,7 @@ export class ReservationAddComponent implements OnInit {
     );
   };
 
+  /* this function allows you to add a reservation */
   addReservation = () => {
     this.submitted = true;
 
@@ -66,17 +67,19 @@ export class ReservationAddComponent implements OnInit {
 
     const reservation: Reservation = {...this.reservationForm.value};
 
-    this.reservationService.addReservation(reservation)
-      .subscribe(result => {
-        alert("La tua prenotazione è avvenuta con successo!");
-        this.reservationForm.reset();
-        this.router.navigate(['reservations/add']);
-      }, error => {
-        console.error(error);
-      });
+    if(confirm("Sei sicuro di voler aggiungere questa prenotazione?") == true){   //add a confim dialog window 
+      this.reservationService.addReservation(reservation)
+        .subscribe(result => {
+          this.reservationForm.reset();
+          this.router.navigate(['reservations/add']);
+        }, error => {
+          console.error(error);
+        });
 
-    console.log(this.reservationForm.value);
+      console.log(this.reservationForm.value);
+    }
    };
 
-   goToReservationDetails = (email) => this.router.navigate([`reservations/upd/${email}`]);
+  /* This function allows to go to the reservation's details page searching the reservation by email */
+  goToReservationDetails = (email) => this.router.navigate([`reservations/upd/${email}`]);
 }

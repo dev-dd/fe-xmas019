@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import {Reservation} from '../../../shared/models/Reservation';
 import {ReservationService} from '../../../shared/services/reservations.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Beach} from '../../../shared/models/Beach';
+import {BeachService} from '../../../shared/services/beaches.service';
 
 @Component({
   selector: 'app-reservation-detail',
@@ -14,12 +16,14 @@ export class ReservationDetailComponent implements OnInit {
 
   reservation: Reservation;
   editResForm: FormGroup;
+  beaches: Beach[] = [];
 
   submitted = false;
 
   constructor(
     private route: ActivatedRoute,
     private reservationService: ReservationService,
+    private beachService: BeachService,
     private formBuilder: FormBuilder,
     private router: Router,
   ) {
@@ -29,6 +33,7 @@ export class ReservationDetailComponent implements OnInit {
   ngOnInit() {
     // console.log('param: ' + this.route.snapshot.params.idReservation);
     this.loadComponent(this.route.snapshot.params.idReservation);
+    this.loadBeaches();
   }
 
   loadComponent(idReservation) {
@@ -38,27 +43,21 @@ export class ReservationDetailComponent implements OnInit {
         this.editResForm = this.formBuilder.group({
           idReservation: [resData.idReservation],
           idBeach: [resData.idBeach],
-          name_reservation: [resData.name_reservation,
-            Validators.compose([Validators.minLength(3),
-            Validators.maxLength(30), Validators.required])],
-          email: [resData.email, Validators.compose([Validators.required, Validators.maxLength(40)])],
-          mobile: [resData.mobile, Validators.compose([Validators.required, Validators.maxLength(14)])],
-          date: [resData.date, Validators.required],
+          name_reservation: [resData.name_reservation],
+          email: [resData.email],
+          mobile: [resData.mobile],
+          date: [resData.date],
           quantity: [resData.quantity],
           half_day: [resData.half_day]
         });
-      }, err => {
-        console.error(err);
       });
   }
 
   editReservation = () => {
-    this.submitted = true;
-
-    if (this.editResForm.invalid) {
-      console.warn('invalid');
-      return;
-    }
+    // if (this.editResForm.invalid) {
+    //   console.warn('invalid');
+    //   return;
+    // }
 
     const reservation: Reservation = {...this.editResForm.value, idReservation: this.reservation.idReservation};
 
@@ -69,4 +68,14 @@ export class ReservationDetailComponent implements OnInit {
         console.error(err);
       });
   };
+
+  loadBeaches() {
+    this.beachService.getBeaches()
+      .subscribe((resBeaches: Array<Beach>) => {
+        this.beaches = resBeaches;
+        // console.log(this.beaches);
+      }, err => {
+        console.error(err);
+      });
+  }
 }
