@@ -54,10 +54,10 @@ export class ReservationDetailComponent implements OnInit {
   }
 
   editReservation = () => {
-    // if (this.editResForm.invalid) {
-    //   console.warn('invalid');
-    //   return;
-    // }
+    if (this.editResForm.invalid) {
+      console.warn('invalid');
+      return;
+    }
 
     const reservation: Reservation = {...this.editResForm.value, idReservation: this.reservation.idReservation};
 
@@ -69,11 +69,24 @@ export class ReservationDetailComponent implements OnInit {
       });
   };
 
+  deleteReservation = () => {
+    this.reservationService.deleteReservationById(this.reservation.idReservation)
+      .subscribe( result => {
+        this.router.navigate(['../reservations/list']);
+      }, err => {
+        console.error(err);
+      });
+  }
+
   loadBeaches() {
     this.beachService.getBeaches()
       .subscribe((resBeaches: Array<Beach>) => {
-        this.beaches = resBeaches;
-        // console.log(this.beaches);
+        for (const beach of resBeaches) {
+          if (beach.beach_service) {
+            this.beaches.push(beach);
+          }
+        }
+        console.log(this.beaches);
       }, err => {
         console.error(err);
       });

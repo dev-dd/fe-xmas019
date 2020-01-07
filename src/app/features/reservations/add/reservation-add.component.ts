@@ -49,7 +49,11 @@ export class ReservationAddComponent implements OnInit {
   listOfBeaches = () => {
     this.beachService.getBeaches()
     .subscribe((resBeaches: Array<Beach>)=> {
-      this.beaches = resBeaches;
+      for (const beach of resBeaches) {
+        if (beach.beach_service) {
+          this.beaches.push(beach);
+        }
+      }
     }, err => {
       console.error(err);
     }

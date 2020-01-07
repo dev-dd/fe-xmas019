@@ -58,8 +58,12 @@ export class ReservationListComponent implements OnInit {
   loadBeaches() {
     this.beachService.getBeaches()
       .subscribe((resBeaches: Array<Beach>) => {
-        this.beaches = resBeaches;
-        // console.log(this.beaches);
+        for (const beach of resBeaches) {
+          if (beach.beach_service) {
+            this.beaches.push(beach);
+          }
+        }
+        console.log(this.beaches);
       }, err => {
         this.loaded = true;
       });

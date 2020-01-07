@@ -35,4 +35,8 @@ export class ReservationService {
   deleteReservation = (email) => {
     return this.http.delete(`${this.baseUrl}/${email}`);
   };
+
+  deleteReservationById = (idReservation: number) => {
+    return this.http.delete(`${this.baseUrl}/id/${idReservation}`);
+  }
 }

@@ -1,0 +1,14 @@
+nav {
+    padding: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #e3f2fd;
+  }
+  
+  button {
+    margin: auto 1rem;
+  }
+  
+  navicon {
+    margin-right: 1px;
+  }
