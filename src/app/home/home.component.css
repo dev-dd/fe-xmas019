@@ -1,5 +1,6 @@
 /* DYNAMIC SPLIT SCREEN */
 
+
 *,
 *::after,
 *::before {
@@ -35,11 +36,17 @@
 .swipe__left {
   background: url("https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260") no-repeat center;
   background-size: cover;
+  opacity: 0.7;
+}
+
+.swipe__left:hover, .swipe__right:hover {
+  opacity: 1;
 }
 
 .swipe__right {
   background: url("https://www.gruppocontas.it/wp-content/uploads/2017/11/STABILIMENTO-BALNEARE.jpg") no-repeat center;
   background-size: cover;
+  opacity: 0.7;
 }
 
 .box {
@@ -86,7 +93,6 @@
 .btn__orange:hover {
   background: #fff;
 }
-
 
 @media screen and (max-width: 768px) {
   .container {
