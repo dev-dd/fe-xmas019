@@ -1,247 +1,107 @@
-/* NAVBAR CSS */
 
-a.navbar-brand {
-	font-family: 'PT Sans', sans-serif;
-	color: #fff;
-	text-transform: uppercase;
-	font-size: 12px;
-}
-
-a.nav-link {
-	font-family: 'PT Sans', sans-serif;
-	color: #fff;
-	text-transform: uppercase;
-	font-size: 16px;
-}
-
-a.nav-link:hover {
-	opacity: 0.8;
-}
-
-.navbar-btn {
-	font-family: 'PT Sans', sans-serif;
-	color: black;
-	text-transform: uppercase;
-	align-items: center;
-	border-radius: 4px;
-	background-color: #ffbf00;
-	font-size: 14px;
-	letter-spacing: 1px;
-	margin-left: 5px;
-}
-
-.navbar-btn:hover {
-	background-color: #ffbf00e0;
-}
-
-#searchByEmail {
-	margin-left: 100px;
-}
-
-/* FORM CSS */
-
-body {
- padding-top: 50px;
-}
-
-.section {
-	position: relative;
-	height: 100vh;
-}
-
-.section .section-center {
-	position: absolute;
-	top: 50%;
-	left: 0;
-	right: 0;
-	-webkit-transform: translateY(-55%);
-	transform: translateY(-55%);
-}
-
-.info {
-	text-transform: uppercase;
-	font-size: 8px;
-	color: #fff;
-  }
-
-#booking {
-	font-family: 'PT Sans', sans-serif;
+.masthead {
+	/*height: 100vh;*/
+	height: 50vh;
+	min-height: 500px;
 	background-image: url('https://villas.byunique.com/components/com_jomcomdev/images/!erp/2798/269224-Love-Pumpkin-at-COMO-Parrot-Cay-76317865-H1-Love_Pumpkin_-_Guest_Villa_-_Beach_Service.jpg');
-	background-size: cover;
+	/*background-image: url('https://images.pexels.com/photos/531035/pexels-photo-531035.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+	*/background-size: cover;
 	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	font-family: 'PT Sans', sans-serif;
 }
 
 .booking-form {
-	width: 55%;
-	background: rgba(0, 0, 0, 0.6); 
-	padding: 25px;
-	border-radius: 6px;
+	background-color: rgb(233, 233, 233);
+	width: 90vh;
+	/*position: fixed;
+	top: 65%; */
+	margin-top: -100px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    z-index: 11;
 }
 
-.booking-form .form-group {
-	position: relative;
-	margin-bottom: 20px;
+form {
+	padding: 3%;
+	text-transform: uppercase;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 12px;
 }
 
-.booking-form .form-control {
-	background-color: #fff;
-	height: 50px;
-	color: #191a1e;
-	border: none;
-	font-size: 16px;
-	font-weight: 400;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	border-radius: 40px;
-	padding: 0px 25px;
-}
-
-.booking-form .form-control::-webkit-input-placeholder {
-	color: rgba(82, 82, 84, 0.4);
-}
-
-.booking-form .form-control:-ms-input-placeholder {
-	color: rgba(82, 82, 84, 0.4);
-}
-
-.booking-form .form-control::placeholder {
-	color: rgba(82, 82, 84, 0.4);
-}
-
-.booking-form input[type="date"].form-control:invalid {
-	color: rgba(82, 82, 84, 0.4);
-}
-
-.booking-form select.form-control {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-}
-
-.booking-form select.form-control+.select-arrow {
-	position: absolute;
-	right: 10px;
-	bottom: 6px;
-	width: 32px;
-	line-height: 32px;
-	height: 32px;
+.form-checkbox {
+	padding-top: 10%;
 	text-align: center;
-	pointer-events: none;
-	color: rgba(0, 0, 0, 0.3);
-	font-size: 12px;
 }
 
-.booking-form select.form-control+.select-arrow:after {
-	content: '\279C';
-	display: block;
-	-webkit-transform: rotate(90deg);
-	transform: rotate(90deg);
+h1, h3 {
+	text-shadow: 1px 1px rgb(197, 197, 197);
 }
 
-.booking-form .form-label {
-	display: block;
-	margin-left: 20px;
-	margin-bottom: 5px;
-	font-weight: 400;
-	text-transform: uppercase;
-	line-height: 24px;
-	height: 24px;
-	font-size: 12px;
-	color: #fff;
-}
-
-.booking-form .form-checkbox input {
-	position: absolute !important;
-	margin-left: -9999px !important;
-	visibility: hidden !important;
-}
-
-.booking-form .form-checkbox label {
-	position: relative;
-	padding-top: 4px;
-	padding-left: 30px;
-	font-weight: 400;
-	color: #fff;
-	text-transform: uppercase;
-	font-size: 10px;
-}
-
-.booking-form .form-checkbox label+label {
-	margin-left: 15px;
-}
-
-.booking-form .form-checkbox input+span {
-	position: absolute;
-	left: 60px;
-	top: 4px;
-	width: 20px;
-	height: 20px;
-	background: #fff;
-	border-radius: 50%;
-}
-
-.booking-form .form-checkbox input+span:after {
-	content: '';
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 0px;
-	height: 0px;
-	border-radius: 50%;
-	background-color: #000000;
-	-webkit-transition: 0.2s all;
-	transition: 0.2s all;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-}
-
-.booking-form .form-checkbox input:not(:checked)+span:after {
-	opacity: 0;
-}
-
-.booking-form .form-checkbox input:checked+span:after {
-	opacity: 1;
-	width: 10px;
-	height: 10px;
-}
-
-.booking-form .form-btn {
-	margin-top: 27px;
-}
-
-.booking-form .submit-btn {
-	color: #fff;
-	background-color: rgba(0, 128, 0, 0.808); /*#1f8d0ae3;*/
-	font-weight: 400;
-	height: 50px;
-	font-size: 14px;
-	border: none;
-	width: 100%;
-	border-radius: 40px;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	-webkit-transition: 0.2s all;
-	transition: 0.2s all;
-}
-
-.booking-form .reset-btn {
-	color: #fff;
-	background-color: rgba(250, 39, 39, 0.808);
-	font-weight: 400;
-	height: 50px;
+.submit-btn, .btn-primary {
+	color: #000;
+	background-color: rgba(0, 128, 0, 0.877);
+	text-decoration: none;
+	margin-top: 10%;
+	margin-bottom: 5%;
+	padding: 12px 45px;
+	text-align: center;
 	font-size: 13px;
-	border: none;
-	width: 100%;
-	border-radius: 40px;
+	font-weight: 700;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	-webkit-transition: 0.2s all;
-	transition: 0.2s all;
+	border-radius: 6px;
+	cursor: pointer;
+	width: 100%;
 }
+
+.btn-primary {
+	background-color: rgba(32, 32, 238, 0.89);
+	margin-top: 5px;
+	font-weight: 400;
+	width: 100%;
+}
+
+p {
+	text-transform: uppercase;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 10px;
+	margin-bottom: 0;
+}
+#searchInput {
+	margin-top: 0;	
+	width: 50%;
+	padding: 3%;
+	margin-left: 25%;
+}
+
 
 .booking-form .submit-btn:hover,
-.booking-form .reset-btn:hover,
+.booking-form .btn-primary:hover,
 .booking-form .submit-btn:focus,
-.booking-form .reset-btn:focus {
+.booking-form .btn-primary:focus {
 	opacity: 0.9;
+}
+
+.page-footer {
+	margin-top: 5%;
+	/*background-color: rgb(255, 251, 200);*/
+	color: black;
+	background-color: lightgrey;
+}
+
+.footer-elements {
+	margin-top: 3%;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.footer-copyright {
+	padding-top: 0;
+	margin-top: 0;
+}
+
+.btn-floating:focus, .btn-floating:hover {
+	opacity: 0.9;
+	background-color: rgba(138, 138, 138, 0.767);
 }
