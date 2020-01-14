@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReservationAddComponent } from './add/reservation-add.component';
 import { ReservationUpdComponent } from './upd/reservation-upd.component';
 import { ReservationListComponent } from './list/reservation-list.component';
-import {ReservationDetailComponent} from './detail/reservation-detail.component';
+import { ReservationDetailComponent } from './detail/reservation-detail.component';
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'add',
+    path: 'add/:name_reservation',
     component: ReservationAddComponent,
   },
   {

@@ -3,9 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {BeachService} from '../../../shared/services/beaches.service';
 import {Beach} from '../../../shared/models/Beach';
 import {CurrentWeather} from '../../../shared/models/Meteo';
-import {Traffic} from '../../../shared/models/Traffic';
 import {WeatherService} from '../../../shared/services/weather.service';
-import {TrafficService} from '../../../shared/services/traffic.service';
 
 @Component({
   selector: 'app-beach-detail',

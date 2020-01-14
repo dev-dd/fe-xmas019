@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Reservation } from '../../../shared/models/Reservation';
 import { ReservationService } from '../../../shared/services/reservations.service';
@@ -23,7 +23,7 @@ export class ReservationAddComponent implements OnInit {
     private formBuilder: FormBuilder,
     private reservationService: ReservationService,
     private beachService: BeachService,
-    //private activatedRoute: ActivatedRoute, //componente da sbloccare in caso si voglia passare l'idBeach in automatico
+    private activatedRoute: ActivatedRoute, //componente da sbloccare in caso si voglia passare l'idBeach in automatico
     private router: Router,
   ) {
     this.reservationForm = this.formBuilder.group({
@@ -33,7 +33,7 @@ export class ReservationAddComponent implements OnInit {
       //in questa versione, l'utente può scegliere direttamente la spiaggia da una select list 
       idBeach: [null, Validators.required],
       date: ['', Validators.required],
-      name_reservation: ['', Validators.compose([Validators.minLength(3), Validators.maxLength(30), Validators.required])],
+      name_reservation: [this.activatedRoute.snapshot.params.name_reservation, Validators.compose([Validators.minLength(3), Validators.maxLength(30), Validators.required])],
       email: ['', Validators.compose([Validators.required, Validators.maxLength(40)])],
       mobile: ['', Validators.compose([Validators.required, Validators.maxLength(16)])],
       quantity: [1],      //default value if the user doesn't change it
@@ -83,7 +83,4 @@ export class ReservationAddComponent implements OnInit {
       console.log(this.reservationForm.value);
     }
    };
-
-  /* This function allows to go to the reservation's details page searching the reservation by email */
-  goToReservationDetails = (email) => this.router.navigate([`reservations/upd/${email}`]);
 }

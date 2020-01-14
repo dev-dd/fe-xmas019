@@ -11,10 +11,10 @@
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400">
 </head>
 
-<!-- Navbar -->
+<!-- Navbar navbar-light bg-light -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
 	<div class="container">
-	  <a class="navbar-brand" href="#">The Net Value Academy</a>
+	  <a class="navbar-brand" href="#"> Sardinia Sun Spot</a> <i class="fa fa-umbrella-beach"></i>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		  </button>
@@ -31,28 +31,15 @@
 		  <li class="nav-item">
 			<a class="nav-link" href="#" >Contatti</a>
 		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="http://localhost:4200/reservations/list">Admin Login</a>
+		  <li class="nav-item gestore">
+			<a class="nav-link" href="http://localhost:4200/reservations/list">Sei un gestore? <br> Clicca qui!</a>
 		  </li>
 		</ul>
 	  </div>
 	</div>
-  </nav>
-  
-  <!-- Full Page Image Header with Vertically Centered Content -->
-  <header class="masthead">
-	<div class="container h-100">
-	  <div class="row h-100 align-items-center">
-		<div class="col-12 text-center">
-		  <h1 class="font-weight-light">Rilassati nelle più belle spiagge della Sardegna</h1>
-		  <h3 class="lead">Riserva il tuo posto in prima fila</h3>
-		</div>
-	  </div>
-	</div>
-  </header>
+</nav>
 <body> 
 	<!-- Page Content -->
-
 	<div class="container">
 	  <div class="d-flex flex-row justify-content-center">
 		<div class="booking-form rounded bd-highlight">
@@ -61,7 +48,7 @@
 					<div class="col-md-12">
 						<div class="form-group">
 							<span class="form-label">Nominativo</span>
-							<input class="form-control" type="text" formControlName="name_reservation" name="name_reservation" placeholder="Mario Rossi" required>
+							<input class="form-control" type="text" formControlName="name_reservation" name="name_reservation" required>
 						</div>
 					</div>
 				</div>
@@ -69,7 +56,7 @@
 					<div class="col-md-12">
 						<div class="form-group">
 							<span class="form-label">Email</span>
-							<input class="form-control" type="email" formControlName="email" name="email" placeholder="mario.rossi@esempio.com" required>
+							<input class="form-control" type="email" formControlName="email" name="email" placeholder="inserisci la tua email" required>
 						</div>
 					</div>
 				</div>
@@ -77,13 +64,13 @@
 					<div class="col-md-6">
 						<div class="form-group">					
 							<span class="form-label">Numero di telefono</span>
-							<input class="form-control" type="text" formControlName="mobile" name="mobile" placeholder="+393482792787" required>
+							<input class="form-control" type="text" formControlName="mobile" name="mobile" placeholder="inserisci il tuo numero di telefono" required>
 						</div>
 					  </div>
 					<div class="col-md-6">
 						<div class="form-group">
 							<span class="form-label">Data</span>
-							<input class="form-control" type="date" formControlName="date" name="date" min="2020-01-01" required>
+							<input class="form-control" type="date" formControlName="date" name="date" min="2020-05-01" required>
 						</div>
 					</div>
 				</div>
@@ -142,30 +129,107 @@
 					<div class="col-md-2"></div>
 				</div>
 			</form>
-			<div class="row align-items-center">
-				<div class="col-md-12 text-center">
-					<p> oppure visualizza la tua prenotazione </p>
-					<input id="searchInput" type="email" [(ngModel)]="email" class="form-control form-control-sm" placeholder="inserisci la tua email">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-6" >
-					<div class="form-btn rounded align-items-center">
-						<button type="submit" (click)="goToReservationDetails(email)" class="btn btn-primary">cerca</button>
-					</div>
-				</div>
-				<div class="col-md-3"></div>
-			</div>
 		</div>
 	  </div>
 	</div>
-  
 </body>
 
 <!-- Footer -->
-<footer class="page-footer font-small shadow">
-	<!-- Footer Elements -->
+<footer class="page-footer font-small footer-light bg-light shadow pt-4">
+	<!-- Footer Images -->
+	<div class="container">
+	<!--Grid row-->
+    <div class="row">
+
+		<!--Grid column-->
+		<div class="col-lg-2 col-md-12 mb-4">
+  
+		  <!--Image-->
+		  <div class="view overlay z-depth-1-half">
+			<img [src]="beaches[6].photo" alt="Spiaggia di {{beaches[6].name}}" class="img-fluid">
+			<a href="">
+			  <div class="mask rgba-white-light"></div>
+			</a>
+		  </div>
+  
+		</div>
+		<!--Grid column-->
+  
+		<!--Grid column-->
+		<div class="col-lg-2 col-md-6 mb-4">
+  
+		  <!--Image-->
+		  <div class="view overlay z-depth-1-half">
+			<img [src]="beaches[5].photo" alt="Spiaggia di {{beaches[5].name}}" class="img-fluid">
+			<a href="">
+			  <div class="mask rgba-white-light"></div>
+			</a>
+		  </div>
+  
+		</div>
+		<!--Grid column-->
+  
+		<!--Grid column-->
+		<div class="col-lg-2 col-md-6 mb-4">
+  
+		  <!--Image-->
+		  <div class="view overlay z-depth-1-half">
+			<img [src]="beaches[4].photo" alt="Spiaggia di {{beaches[4].name}}" class="img-fluid">
+			<a href="">
+			  <div class="mask rgba-white-light"></div>
+			</a>
+		  </div>
+  
+		</div>
+		<!--Grid column-->
+  
+		<!--Grid column-->
+		<div class="col-lg-2 col-md-12 mb-4">
+  
+		  <!--Image-->
+		  <div class="view overlay z-depth-1-half">
+			<img [src]="beaches[3].photo" alt="Spiaggia di {{beaches[3].name}}" class="img-fluid">
+			<a href="">
+			  <div class="mask rgba-white-light"></div>
+			</a>
+		  </div>
+  
+		</div>
+		<!--Grid column-->
+  
+		<!--Grid column-->
+		<div class="col-lg-2 col-md-6 mb-4">
+  
+		  <!--Image-->
+		  <div class="view overlay z-depth-1-half">
+			<img [src]="beaches[1].photo" alt="Spiaggia di {{beaches[1].name}}" class="img-fluid">
+			<a href="">
+			  <div class="mask rgba-white-light"></div>
+			</a>
+		  </div>
+  
+		</div>
+		<!--Grid column-->
+  
+		<!--Grid column-->
+		<div class="col-lg-2 col-md-6 mb-4">
+  
+		  <!--Image-->
+		  <div class="view overlay z-depth-1-half">
+			<img [src]="beaches[2].photo" alt="Spiaggia di {{beaches[2].name}}" class="img-fluid">
+			<a href="">
+			  <div class="mask rgba-white-light"></div>
+			</a>
+		  </div>
+  
+		</div>
+		<!--Grid column-->
+  
+	</div>
+	  <!--Grid row-->
+	</div>
+
+	<!-- Footer Elements -->  
 	<div class="container footer-elements">
 		<ul class="list-unstyled list-inline text-center">
 			<li class="list-inline-item">
@@ -192,8 +256,8 @@
 	</div>
 	<!-- Footer Elements -->
 	<!-- Fake Copyright -->
-	<div class="footer-copyright text-center py-3">© 2020 Copyright:
-	  <a href="https://www.thenetvalue.com/"> thenetvalue.com</a>
+	<div class="footer-copyright text-center ">© 2020 Copyright:
+	  <a href=""> sardiniasunspot.com</a>
 	</div>
 	<!-- Fake Copyright -->
-  </footer>
+</footer>

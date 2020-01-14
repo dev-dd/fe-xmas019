@@ -1,23 +1,43 @@
-
-.masthead {
-	/*height: 100vh;*/
-	height: 50vh;
-	min-height: 500px;
-	background-image: url('https://villas.byunique.com/components/com_jomcomdev/images/!erp/2798/269224-Love-Pumpkin-at-COMO-Parrot-Cay-76317865-H1-Love_Pumpkin_-_Guest_Villa_-_Beach_Service.jpg');
-	/*background-image: url('https://images.pexels.com/photos/531035/pexels-photo-531035.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
-	*/background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	position: relative;
+.navbar {
 	font-family: 'PT Sans', sans-serif;
 }
 
+.gestore {
+	font-size: 12px;
+	text-align: center;
+}
+
+body  {
+	background-image: url('https://villas.byunique.com/components/com_jomcomdev/images/!erp/2798/269224-Love-Pumpkin-at-COMO-Parrot-Cay-76317865-H1-Love_Pumpkin_-_Guest_Villa_-_Beach_Service.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	height: 100vh;
+}
+/*
+.masthead {
+	/*height: 100vh;
+	height: 50vh;
+	min-height: 500px;
+	width: 100%;
+	height: 90%;
+	background-image: url('https://villas.byunique.com/components/com_jomcomdev/images/!erp/2798/269224-Love-Pumpkin-at-COMO-Parrot-Cay-76317865-H1-Love_Pumpkin_-_Guest_Villa_-_Beach_Service.jpg');
+	/*background-image: url('https://images.pexels.com/photos/531035/pexels-photo-531035.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+	background-size: auto;
+	background-position: center;
+	background-repeat: no-repeat;
+	/*position: relative;
+	position: fixed;
+	font-family: 'PT Sans', sans-serif;
+}
+*/
 .booking-form {
+	margin-top: 10%;
 	background-color: rgb(233, 233, 233);
 	width: 90vh;
 	/*position: fixed;
 	top: 65%; */
-	margin-top: -100px;
+	/*margin-top: -100px;*/
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     z-index: 11;
 }
@@ -38,9 +58,9 @@ h1, h3 {
 	text-shadow: 1px 1px rgb(197, 197, 197);
 }
 
-.submit-btn, .btn-primary {
-	color: #000;
-	background-color: rgba(0, 128, 0, 0.877);
+.submit-btn {
+	color: rgb(255, 255, 255);
+	background-color: #E63946;
 	text-decoration: none;
 	margin-top: 10%;
 	margin-bottom: 5%;
@@ -55,19 +75,13 @@ h1, h3 {
 	width: 100%;
 }
 
-.btn-primary {
-	background-color: rgba(32, 32, 238, 0.89);
-	margin-top: 5px;
-	font-weight: 400;
-	width: 100%;
-}
-
 p {
 	text-transform: uppercase;
 	font-family: 'PT Sans', sans-serif;
 	font-size: 10px;
 	margin-bottom: 0;
 }
+
 #searchInput {
 	margin-top: 0;	
 	width: 50%;
@@ -77,22 +91,23 @@ p {
 
 
 .booking-form .submit-btn:hover,
-.booking-form .btn-primary:hover,
-.booking-form .submit-btn:focus,
-.booking-form .btn-primary:focus {
-	opacity: 0.9;
+.booking-form .submit-btn:focus {
+	background: #D90429;
 }
 
 .page-footer {
-	margin-top: 5%;
+	/*margin-top: 5%;*/
 	/*background-color: rgb(255, 251, 200);*/
 	color: black;
-	background-color: lightgrey;
+	/*
+	background-color: lightgrey;*/
+	background-color: #F1DEDC;
 }
 
 .footer-elements {
-	margin-top: 3%;
+	/*margin-top: 3%;*/
 	text-align: center;
+	font-size: 8px;
 	margin-bottom: 0;
 }
 
@@ -104,4 +119,9 @@ p {
 .btn-floating:focus, .btn-floating:hover {
 	opacity: 0.9;
 	background-color: rgba(138, 138, 138, 0.767);
+}
+
+.img-fluid {
+	max-width: 100%;
+    height: 150px;
 }

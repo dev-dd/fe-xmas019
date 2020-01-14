@@ -63,6 +63,7 @@ export class ReservationUpdComponent implements OnInit {
   }
 
   /* This function allows to the user to edit a reservation */
+  /*
   editReservation = () => {
    
     const reservation: Reservation = {...this.editReservationForm.value, idReservation: this.reservation.idReservation};
@@ -73,7 +74,7 @@ export class ReservationUpdComponent implements OnInit {
       }, err => {
         console.error(err);
       });
-  };
+  };*/
 
   /* This function allows to the user to delete a reservation */
   deleteReservation(email) {

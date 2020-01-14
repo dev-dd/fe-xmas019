@@ -1,6 +1,116 @@
+/** FINAL VERSION **/
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0,0;
+  width: 100%;
+  font-family: 'PT Sans', sans-serif;
+  letter-spacing: 1px;
+}
+
+.container-fluid {
+  height: 100vh;
+  display: flex;
+  /*justify-content: space-between;*/
+  text-align: center;
+  background: url("https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260") no-repeat center;
+  background-size: cover;
+  opacity: 0.9;
+}
+
+input {
+  padding-left: 3%;
+}
+.prenotazione, .lista {
+  padding-left: 5%;
+}
+
+.col-md-9, .col-md-3 {
+  padding-left: 5%;
+} 
+
+.titolo {
+  text-align: center;
+  padding-left: 5%;
+  margin-bottom: 10%;
+}
+
+.lista {
+  margin-top: 3%;
+}
+
+.box {
+  margin-top: 10%;
+  width: 100%;
+  max-width: 55%;
+  height: 65%;
+  padding: 30px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+}
+
+.box .b_head {
+  font-size: 42px;
+  line-height: 44px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.box p {
+  font-size: 14px;
+  /*line-height: 30px;*/
+  /*margin-bottom: 60px;*/
+  text-align: center;
+}
+
+.btn {
+  display: block;  
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 4.5%;
+  text-align: center;
+  background: #007EA7;
+  /*#fff;*/
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+.btn:hover {
+  background: #00A8E8;
+}
+.btn__add {
+  margin-top: 3%;
+  color: #fff;
+  background: #E63946;
+  transition: .5s;
+  padding: 12px;
+}
+.btn__add:hover {
+  background: #D90429;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: block;
+    height: 100%;
+  }
+
+  .swipe {
+    flex-basis: 100%;
+    padding: 40px 0;
+  }
+}
+
 /* DYNAMIC SPLIT SCREEN */
-
-
+/*
 *,
 *::after,
 *::before {
@@ -105,7 +215,7 @@
     padding: 40px 0;
   }
 }
-
+*/
 /* NO DYNAMIC SPLIT SCREEN */
 /*
 .cursor-pointer {
