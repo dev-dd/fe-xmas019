@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 import { Reservation } from '../../../shared/models/Reservation';
 import { ReservationService } from '../../../shared/services/reservations.service';
@@ -16,7 +17,7 @@ export class ReservationUpdComponent implements OnInit {
   reservation : Reservation;
   editReservationForm: FormGroup;
   beaches: Beach[] = [];
-
+  pipe = new DatePipe('en-US');
   submitted = false;
 
   constructor(
