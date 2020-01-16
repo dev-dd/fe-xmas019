@@ -25,6 +25,7 @@ body  {
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 	z-index: 11;
 	width: 36rem;
+	border-radius: 6px;
 }
 
 .card-text {
@@ -35,23 +36,22 @@ body  {
 	font-weight: 500;
 }
 
-.noReservation {
-	width: 50%;
-	margin-top: 125px;
-	margin-left: 100px;
-	background: #ffbf00e5; 
-	padding-top: 15px;
-	padding-bottom: 0;
-	border-radius: 6px;
-}
 
+.noReservation {
+	margin-top: 10%;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	z-index: 11;
+	width: 36rem;
+	border-radius: 6px;
+	background: #007EA7;
+	color: bisque;
+}
 
 .btn {
 	color: rgb(255, 255, 255);
 	background-color: #E63946;
 	margin-top: 2%;
 	margin-right: 2%;
-	/*text-align: center;*/
 	font-size: 10px;
 	font-weight: 400;
 	letter-spacing: 1px;
@@ -65,7 +65,7 @@ body  {
 	background: #D90429;
 }
 
-.btn-link {
+.accordion, .btn-link {
 	background: #007EA7;
 }
 
