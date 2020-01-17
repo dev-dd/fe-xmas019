@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
+import {DatePipe} from '@angular/common';
 
 import {ReservationService} from '../../../shared/services/reservations.service';
 import {Reservation} from '../../../shared/models/Reservation';
@@ -131,9 +132,9 @@ export class ReservationListComponent implements OnInit {
 
     for (const reserv of this.reservations) {
       if (reserv.beach_name.toLocaleLowerCase().includes(this.searchKey.toLocaleLowerCase()) ||
-          reserv.mobile.toLocaleLowerCase().includes(this.searchKey.toLocaleLowerCase()) ||
-          reserv.email.toLocaleLowerCase().includes(this.searchKey.toLocaleLowerCase()) ||
-          reserv.name_reservation.toLocaleLowerCase().includes(this.searchKey.toLocaleLowerCase())) {
+        reserv.mobile.toLocaleLowerCase().includes(this.searchKey.toLocaleLowerCase()) ||
+        reserv.email.toLocaleLowerCase().includes(this.searchKey.toLocaleLowerCase()) ||
+        reserv.name_reservation.toLocaleLowerCase().includes(this.searchKey.toLocaleLowerCase())) {
         this.filteredRes.push(reserv);
       }
     }

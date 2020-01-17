@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
+import {formatDate} from '@angular/common';
 
 import {Reservation} from '../../../shared/models/Reservation';
 import {ReservationService} from '../../../shared/services/reservations.service';
@@ -19,6 +20,7 @@ export class ReservationDetailComponent implements OnInit {
   editResForm: FormGroup;
   beaches: Beach[] = [];
 
+  today;
   disabledFlag = true;
   submitted = false;
 
@@ -34,6 +36,8 @@ export class ReservationDetailComponent implements OnInit {
 
   ngOnInit() {
     // console.log('param: ' + this.route.snapshot.params.idReservation);
+    this.today = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    console.log(this.today);
     this.loadComponent(this.route.snapshot.params.idReservation);
     this.loadBeaches();
   }

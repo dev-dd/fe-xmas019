@@ -1,154 +1,154 @@
 <html class="bg-light">
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand" [routerLink]="['/reservations/list']">
-      <img src="assets/img/eye.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <a class="navbar-brand" [routerLink]="['/reservations/list']">
+    <img src="assets/img/eye.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+  </a>
+  <a class="navbar-brand" [routerLink]="['/reservations/list']">Sardinia Sun Spot - Admin Area</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <a id="logout-button" class="text-secondary nav-link nav-item active" [routerLink]="['/reservations/login']">
+      <i class="fa fa-power-off"></i>
     </a>
-    <a class="navbar-brand" [routerLink]="['/reservations/list']">Beach Observer</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-      </ul>
-      <a id="logout-button" class="text-secondary nav-link nav-item active" [routerLink]="['/reservations/login']">
-        <i class="fa fa-power-off"></i>
-      </a>
-      <a id="home-button" class="text-secondary nav-link nav-item active" [routerLink]="['/']">
-        <i class="fa fa-home"></i>
-      </a>
-    </div>
-  </nav>
+    <a id="home-button" class="text-secondary nav-link nav-item active" [routerLink]="['/']">
+      <i class="fa fa-home"></i>
+    </a>
+  </div>
+</nav>
 
-  <main role="main" class="col-sm-12 container maincontent">
+<main role="main" class="col-sm-12 container maincontent">
 
-    <div class="p-4 px-5 container rounded bg-info shadow-sm">
+  <div class="p-4 px-5 container rounded bg-info shadow-sm">
 
-      <div class="row py-2">
-        <div class="col-sm-6 text-left">
-          <div>
-            <h4 class="text-white">Filtra prenotazioni</h4>
-          </div>
+    <div class="row py-2">
+      <div class="col-sm-6 text-left">
+        <div>
+          <h4 class="text-white">Filtra prenotazioni</h4>
         </div>
-        <div class="col-sm-6 text-right">
-          <div>
-            <button class="{{getButtonState()}}" (click)="resetFilter()">Resetta filtro</button>
+      </div>
+      <div class="col-sm-6 text-right">
+        <div>
+          <button class="{{getButtonState()}}" (click)="resetFilter()">Resetta filtro</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row py-2">
+      <div class="form-group col-sm-3">
+        <form class="my-2" (change)="filterReservationsByDate()">
+          <label for="date" class="text-white">Data</label>
+          <input class="form-control" type="date" name="date" id="date" [(ngModel)]="filterDate">
+        </form>
+      </div>
+      <div class="form-group col-sm-3">
+        <form class="my-2" (change)="filterReservationsByBeach()">
+          <label for="beach" class="text-white">Spiaggia</label>
+          <select class="custom-select" id="beach" name="filterBeachSelect" [(ngModel)]="filterBeach">
+            <option *ngFor="let beach of beaches" value="{{beach.name}}">{{beach.name}}</option>
+          </select>
+        </form>
+      </div>
+      <div class="col-sm-6">
+        <label for="search-bar" class="my-2 text-white">Cerca</label>
+        <div class="input-group">
+          <input type="text"
+                 id="search-bar"
+                 name="search-bar"
+                 class="form-control"
+                 placeholder=""
+                 aria-label="Recipient's username"
+                 aria-describedby="basic-addon2"
+                 [(ngModel)]="searchKey"
+                 (keyup.enter)="search()">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" type="submit" (click)="search()"><i class="fas fa-search"></i></button>
           </div>
         </div>
       </div>
+      <!--
+      <div class="input-group col-sm-6">
+        <input type="text" id="search-bar" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-warning" type="button">Button</button>
+        </div>
+      </div>
+      -->
+    </div>
+  </div>
 
-      <div class="form-row py-2">
-        <div class="form-group col-sm-3">
+  <!--
+  <div class="align-items-center p-4 my-4 text-white-50 bg-info rounded shadow-sm">
+    <div class="container">
+      <div class="row d-flex justify-content-between">
+        <div>
+          <h4 class="mb-0 text-white">Filtra prenotazioni</h4>
+        </div>
+        <div>
+          <button class="{{getButtonState()}}" (click)="resetFilter()">Resetta filtro</button>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-between">
+        <div class="col-sm">
           <form class="my-2" (change)="filterReservationsByDate()">
-            <label for="date" class="text-white">Data</label>
             <input class="form-control" type="date" name="date" id="date" [(ngModel)]="filterDate">
           </form>
         </div>
-        <div class="form-group col-sm-3">
+        <div class="col-sm">
           <form class="my-2" (change)="filterReservationsByBeach()">
-            <label for="beach" class="text-white">Spiaggia</label>
-            <select class="custom-select" id="beach" name="filterBeachSelect" [(ngModel)]="filterBeach">
+            <select class="custom-select" name="filterBeachSelect" [(ngModel)]="filterBeach">
               <option *ngFor="let beach of beaches" value="{{beach.name}}">{{beach.name}}</option>
             </select>
           </form>
         </div>
-        <div class="col-sm-6">
-          <label for="search-bar" class="my-2 text-white">Cerca</label>
-          <div class="input-group">
-            <input type="text"
-                   id="search-bar"
-                   name="search-bar"
-                   class="form-control"
-                   placeholder=""
-                   aria-label="Recipient's username"
-                   aria-describedby="basic-addon2"
-                   [(ngModel)]="searchKey"
-                   (keyup.enter)="search()">
-            <div class="input-group-append">
-              <button class="btn btn-secondary" type="submit" (click)="search()"><i class="fas fa-search"></i></button>
-            </div>
-          </div>
-        </div>
-        <!--
-        <div class="input-group col-sm-6">
-          <input type="text" id="search-bar" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-outline-warning" type="button">Button</button>
-          </div>
-        </div>
-        -->
       </div>
     </div>
+  </div>
+  -->
 
-    <!--
-    <div class="align-items-center p-4 my-4 text-white-50 bg-info rounded shadow-sm">
-      <div class="container">
-        <div class="row d-flex justify-content-between">
-          <div>
-            <h4 class="mb-0 text-white">Filtra prenotazioni</h4>
-          </div>
-          <div>
-            <button class="{{getButtonState()}}" (click)="resetFilter()">Resetta filtro</button>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-between">
-          <div class="col-sm">
-            <form class="my-2" (change)="filterReservationsByDate()">
-              <input class="form-control" type="date" name="date" id="date" [(ngModel)]="filterDate">
-            </form>
-          </div>
-          <div class="col-sm">
-            <form class="my-2" (change)="filterReservationsByBeach()">
-              <select class="custom-select" name="filterBeachSelect" [(ngModel)]="filterBeach">
-                <option *ngFor="let beach of beaches" value="{{beach.name}}">{{beach.name}}</option>
-              </select>
-            </form>
-          </div>
-        </div>
+  <div class="container my-3 p-3 bg-white rounded shadow-sm">
+    <div class="container" *ngIf="loaded && reservations.length > 0">
+      <table class="table table-hover text-center">
+        <thead class="thead-light">
+        <tr>
+          <th scope="col">Spiaggia</th>
+          <th scope="col">Data</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Quantità</th>
+          <th scope="col">Mezza giornata</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="!isFilterActive">
+        <tr *ngFor="let reserv of reservations" (click)="goToDetail(reserv.idReservation)">
+          <th scope="row">{{ reserv.beach_name }}</th>
+          <td>{{ reserv.date | date: 'dd-MM-yyyy'}}</td>
+          <td>{{ reserv.name_reservation }}</td>
+          <td>{{ reserv.quantity }}</td>
+          <td><i class="{{getInfoClass(reserv.half_day)}}" aria-hidden="true"></i></td>
+        </tr>
+        </tbody>
+        <tbody *ngIf="isFilterActive && filteredRes.length > 0">
+        <tr *ngFor="let reserv of filteredRes" (click)="goToDetail(reserv.idReservation)">
+          <th scope="row">{{ reserv.beach_name }}</th>
+          <td>{{ reserv.date | date: 'dd-MM-yyyy'}}</td>
+          <td>{{ reserv.name_reservation }}</td>
+          <td>{{ reserv.quantity }}</td>
+          <td><i class="{{getInfoClass(reserv.half_day)}}" aria-hidden="true"></i></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="container text-center" *ngIf="isFilterActive && filteredRes.length === 0">
+        Non è presente alcuna prenotazione secondo il criterio selezionato.
       </div>
+
     </div>
-    -->
-
-    <div class="container my-3 p-3 bg-white rounded shadow-sm">
-      <div class="container" *ngIf="loaded && reservations.length > 0">
-        <table class="table table-hover text-center">
-          <thead class="thead-light">
-          <tr>
-            <th scope="col">Spiaggia</th>
-            <th scope="col">Data</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Quantità</th>
-            <th scope="col">Mezza giornata</th>
-          </tr>
-          </thead>
-          <tbody *ngIf="!isFilterActive">
-          <tr *ngFor="let reserv of reservations" (click)="goToDetail(reserv.idReservation)">
-            <th scope="row">{{ reserv.beach_name }}</th>
-            <td>{{ reserv.date }}</td>
-            <td>{{ reserv.name_reservation }}</td>
-            <td>{{ reserv.quantity }}</td>
-            <td><i class="{{getInfoClass(reserv.half_day)}}" aria-hidden="true"></i></td>
-          </tr>
-          </tbody>
-          <tbody *ngIf="isFilterActive && filteredRes.length > 0">
-          <tr *ngFor="let reserv of filteredRes" (click)="goToDetail(reserv.idReservation)">
-            <th scope="row">{{ reserv.beach_name }}</th>
-            <td>{{ reserv.date }}</td>
-            <td>{{ reserv.name_reservation }}</td>
-            <td>{{ reserv.quantity }}</td>
-            <td><i class="{{getInfoClass(reserv.half_day)}}" aria-hidden="true"></i></td>
-          </tr>
-          </tbody>
-        </table>
-
-        <div class="container text-center" *ngIf="isFilterActive && filteredRes.length === 0">
-          Non è presente alcuna prenotazione secondo il criterio selezionato.
-        </div>
-
-      </div>
-      <div *ngIf="loaded && reservations.length === 0">
-        <p>Non è presente alcuna prenotazione</p>
-      </div>
+    <div *ngIf="loaded && reservations.length === 0">
+      <p>Non è presente alcuna prenotazione</p>
     </div>
+  </div>
 
-  </main>
+</main>
 </html>
