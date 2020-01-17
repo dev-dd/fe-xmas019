@@ -10,7 +10,6 @@
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
-	<div class="container">
         <a class="navbar-brand" href="#"> Sardinia Sun Spot</a> <i class="fa fa-umbrella-beach"></i>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -30,7 +29,7 @@
 		  </li>
 		</ul>
 	  </div>
-	</div>
+
 </nav>
 
 
@@ -47,12 +46,12 @@
 								<p class="card-text"> <strong>Data prenotazione: </strong> {{reservation.date | date: 'dd-MM-yyyy'}}</p>
 							</div>
 							<div class="col-md-5">
-								<p class="card-text"> <strong>Spiaggia: </strong> {{beaches[reservation.idBeach-1].name}}</p>									
-							</div>	
+								<p class="card-text"> <strong>Spiaggia: </strong> {{beaches[reservation.idBeach-1].name}}</p>
+							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-7">
-								<p class="card-text"> <strong>Status prenotazione: </strong> <mark>confermato</mark></p>									
+								<p class="card-text"> <strong>Status prenotazione: </strong> <mark>confermato</mark></p>
 							</div>
 							<div class="col-md-5">
 								<p class="card-text"> <strong>Info: </strong> {{reservation.quantity}} ombrellone + {{reservation.quantity*2}} lettini</p>
@@ -79,7 +78,7 @@
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-5">
-									<p class="card-text text-muted"> Status prenotazione: terminato </p>									
+									<p class="card-text text-muted"> Status prenotazione: terminato </p>
 								</div>
 								<div class="col-md-5">
 									<p class="card-text text-muted"> Spiaggia: Su Giudeu</p>
@@ -101,7 +100,7 @@
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-5">
-									<p class="card-text text-muted"> Status prenotazione: terminato </p>									
+									<p class="card-text text-muted"> Status prenotazione: terminato </p>
 								</div>
 								<div class="col-md-5">
 									<p class="card-text text-muted"> Spiaggia: Le Bombarde</p>
@@ -114,17 +113,14 @@
 
 				<!-- option collaps -->
 			</div>
-			<ng-template #loading>
-				<div class="noReservation rounded bd-highlight container-fluid text-center">
-					<div class="row">
-						<div class="row">
-							<div class="col-md-12">
-								<p>Spiacente... non ci sono prenotazioni corrispondenti a questa email!</p>
-							</div>
-						</div>
-					</div>
-				</div>
-            </ng-template>
+      <ng-template #loading>
+        <div class=" card noReservation rounded bd-highlight text-center">
+          <div class="card-body">
+            <h5 class="card-title" style="letter-spacing: 1px; text-transform: uppercase;">Spiacente...</h5>
+            <h6 class="card-subtitle mb-2" style="padding-bottom: 2%;">non ci sono prenotazioni corrispondenti a questa email !</h6>
+          </div>
+        </div>
+      </ng-template>
 		</div>
 	</div>
 </body>
@@ -138,7 +134,7 @@
 
 		<!--Grid column-->
 		<div class="col-lg-2 col-md-12 mb-4">
-  
+
 		  <!--Image-->
 		  <div class="view overlay z-depth-1-half">
 			<img [src]="beaches[6].photo" alt="Spiaggia di {{beaches[6].name}}" class="img-fluid">
@@ -146,13 +142,13 @@
 			  <div class="mask rgba-white-light"></div>
 			</a>
 		  </div>
-  
+
 		</div>
 		<!--Grid column-->
-  
+
 		<!--Grid column-->
 		<div class="col-lg-2 col-md-6 mb-4">
-  
+
 		  <!--Image-->
 		  <div class="view overlay z-depth-1-half">
 			<img [src]="beaches[5].photo" alt="Spiaggia di {{beaches[5].name}}" class="img-fluid">
@@ -160,13 +156,13 @@
 			  <div class="mask rgba-white-light"></div>
 			</a>
 		  </div>
-  
+
 		</div>
 		<!--Grid column-->
-  
+
 		<!--Grid column-->
 		<div class="col-lg-2 col-md-6 mb-4">
-  
+
 		  <!--Image-->
 		  <div class="view overlay z-depth-1-half">
 			<img [src]="beaches[4].photo" alt="Spiaggia di {{beaches[4].name}}" class="img-fluid">
@@ -174,13 +170,13 @@
 			  <div class="mask rgba-white-light"></div>
 			</a>
 		  </div>
-  
+
 		</div>
 		<!--Grid column-->
-  
+
 		<!--Grid column-->
 		<div class="col-lg-2 col-md-12 mb-4">
-  
+
 		  <!--Image-->
 		  <div class="view overlay z-depth-1-half">
 			<img [src]="beaches[3].photo" alt="Spiaggia di {{beaches[3].name}}" class="img-fluid">
@@ -188,13 +184,13 @@
 			  <div class="mask rgba-white-light"></div>
 			</a>
 		  </div>
-  
+
 		</div>
 		<!--Grid column-->
-  
+
 		<!--Grid column-->
 		<div class="col-lg-2 col-md-6 mb-4">
-  
+
 		  <!--Image-->
 		  <div class="view overlay z-depth-1-half">
 			<img [src]="beaches[1].photo" alt="Spiaggia di {{beaches[1].name}}" class="img-fluid">
@@ -202,13 +198,13 @@
 			  <div class="mask rgba-white-light"></div>
 			</a>
 		  </div>
-  
+
 		</div>
 		<!--Grid column-->
-  
+
 		<!--Grid column-->
 		<div class="col-lg-2 col-md-6 mb-4">
-  
+
 		  <!--Image-->
 		  <div class="view overlay z-depth-1-half">
 			<img [src]="beaches[2].photo" alt="Spiaggia di {{beaches[2].name}}" class="img-fluid">
@@ -216,15 +212,15 @@
 			  <div class="mask rgba-white-light"></div>
 			</a>
 		  </div>
-  
+
 		</div>
 		<!--Grid column-->
-  
+
 	</div>
 	  <!--Grid row-->
 	</div>
 
-	<!-- Footer Elements -->  
+	<!-- Footer Elements -->
 	<div class="container footer-elements">
 		<ul class="list-unstyled list-inline text-center">
 			<li class="list-inline-item">

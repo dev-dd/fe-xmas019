@@ -30,7 +30,7 @@ input {
 
 .col-md-9, .col-md-3 {
   padding-left: 5%;
-} 
+}
 
 .titolo {
   text-align: center;
@@ -46,7 +46,7 @@ input {
   margin-top: 10%;
   width: 100%;
   max-width: 55%;
-  height: 65%;
+  height: 45%;
   padding: 30px;
   color: #fff;
   background: rgba(0, 0, 0, 0.8);
@@ -68,7 +68,7 @@ input {
 }
 
 .btn {
-  display: block;  
+  display: block;
   color: rgb(255, 255, 255);
   text-decoration: none;
   padding: 4.5%;
@@ -183,7 +183,7 @@ input {
 }
 
 .btn {
-  display: block;  
+  display: block;
   color: #000;
   text-decoration: none;
   padding: 12px 45px;
@@ -272,7 +272,7 @@ h1 {
   background:rgba(255, 255, 255, 0.5);
   font-weight: bold;
   text-decoration: underline;
-  text-align: center; 
+  text-align: center;
 }
 
 .container {

@@ -13,7 +13,6 @@
 
 <!-- Navbar navbar-light bg-light -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
-	<div class="container">
 	  <a class="navbar-brand" href="#"> Sardinia Sun Spot</a> <i class="fa fa-umbrella-beach"></i>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -32,13 +31,12 @@
 			<a class="nav-link" href="#" >Contatti</a>
 		  </li>
 		  <li class="nav-item gestore">
-			<a class="nav-link" href="http://localhost:4200/reservations/list">Sei un gestore? <br> Clicca qui!</a>
+			<a class="nav-link" [routerLink]="['/reservations/login']">Sei un gestore? <br> Clicca qui!</a>
 		  </li>
 		</ul>
 	  </div>
-	</div>
 </nav>
-<body> 
+<body>
 	<!-- Page Content -->
 	<div class="container">
 	  <div class="d-flex flex-row justify-content-center">
@@ -62,7 +60,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						<div class="form-group">					
+						<div class="form-group">
 							<span class="form-label">Numero di telefono</span>
 							<input class="form-control" type="text" formControlName="mobile" name="mobile" placeholder="inserisci il tuo numero di telefono" required>
 						</div>
@@ -89,7 +87,7 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<div class="form-group" > 
+						<div class="form-group" >
 						  <span class="form-label">Scegli una spiaggia</span>
 						  <select class="form-control" formControlName="idBeach" name="idBeach" required>
 							  <option *ngFor="let beach of beaches" value="{{beach.idBeach}}">{{beach.name}}</option>
@@ -98,7 +96,7 @@
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
-							<span class="form-label">Mezza giornata</span>
+							<span class="form-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mezza giornata</span>
 							<div class="form-checkbox">
 								<label for="half_day">
 									<input type="checkbox" id="half_day" formControlName="half_day" name="half_day">
@@ -112,7 +110,7 @@
 					<div class="info">
 						<p>* un ombrellone e due lettini</p>
 					  </div>
-				</div>				
+				</div>
 				<div class="row align-items-center">
 					<div class="col-md-2"></div>
 					<!--<div class="col-md-3">
@@ -143,7 +141,7 @@
 
 		<!--Grid column-->
 		<div class="col-lg-2 col-md-12 mb-4">
-  
+
 		  <!--Image-->
 		  <div class="view overlay z-depth-1-half">
 			<img [src]="beaches[6].photo" alt="Spiaggia di {{beaches[6].name}}" class="img-fluid">
@@ -151,13 +149,13 @@
 			  <div class="mask rgba-white-light"></div>
 			</a>
 		  </div>
-  
+
 		</div>
 		<!--Grid column-->
-  
+
 		<!--Grid column-->
 		<div class="col-lg-2 col-md-6 mb-4">
-  
+
 		  <!--Image-->
 		  <div class="view overlay z-depth-1-half">
 			<img [src]="beaches[5].photo" alt="Spiaggia di {{beaches[5].name}}" class="img-fluid">
@@ -165,13 +163,13 @@
 			  <div class="mask rgba-white-light"></div>
 			</a>
 		  </div>
-  
+
 		</div>
 		<!--Grid column-->
-  
+
 		<!--Grid column-->
 		<div class="col-lg-2 col-md-6 mb-4">
-  
+
 		  <!--Image-->
 		  <div class="view overlay z-depth-1-half">
 			<img [src]="beaches[4].photo" alt="Spiaggia di {{beaches[4].name}}" class="img-fluid">
@@ -179,13 +177,13 @@
 			  <div class="mask rgba-white-light"></div>
 			</a>
 		  </div>
-  
+
 		</div>
 		<!--Grid column-->
-  
+
 		<!--Grid column-->
 		<div class="col-lg-2 col-md-12 mb-4">
-  
+
 		  <!--Image-->
 		  <div class="view overlay z-depth-1-half">
 			<img [src]="beaches[3].photo" alt="Spiaggia di {{beaches[3].name}}" class="img-fluid">
@@ -193,13 +191,13 @@
 			  <div class="mask rgba-white-light"></div>
 			</a>
 		  </div>
-  
+
 		</div>
 		<!--Grid column-->
-  
+
 		<!--Grid column-->
 		<div class="col-lg-2 col-md-6 mb-4">
-  
+
 		  <!--Image-->
 		  <div class="view overlay z-depth-1-half">
 			<img [src]="beaches[1].photo" alt="Spiaggia di {{beaches[1].name}}" class="img-fluid">
@@ -207,13 +205,13 @@
 			  <div class="mask rgba-white-light"></div>
 			</a>
 		  </div>
-  
+
 		</div>
 		<!--Grid column-->
-  
+
 		<!--Grid column-->
 		<div class="col-lg-2 col-md-6 mb-4">
-  
+
 		  <!--Image-->
 		  <div class="view overlay z-depth-1-half">
 			<img [src]="beaches[2].photo" alt="Spiaggia di {{beaches[2].name}}" class="img-fluid">
@@ -221,15 +219,15 @@
 			  <div class="mask rgba-white-light"></div>
 			</a>
 		  </div>
-  
+
 		</div>
 		<!--Grid column-->
-  
+
 	</div>
 	  <!--Grid row-->
 	</div>
 
-	<!-- Footer Elements -->  
+	<!-- Footer Elements -->
 	<div class="container footer-elements">
 		<ul class="list-unstyled list-inline text-center">
 			<li class="list-inline-item">

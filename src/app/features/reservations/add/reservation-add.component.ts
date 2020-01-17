@@ -29,8 +29,8 @@ export class ReservationAddComponent implements OnInit {
     this.reservationForm = this.formBuilder.group({
       /* portion of code that automatically passes the id of the beach passing through the detail of this */
       //idBeach: [this.activatedRoute.snapshot.params.idBeach, Validators.required],  //idBeach is passed automatically
-     
-      //in questa versione, l'utente può scegliere direttamente la spiaggia da una select list 
+
+      //in questa versione, l'utente può scegliere direttamente la spiaggia da una select list
       idBeach: [null, Validators.required],
       date: ['', Validators.required],
       name_reservation: [this.activatedRoute.snapshot.params.name_reservation, Validators.compose([Validators.minLength(3), Validators.maxLength(30), Validators.required])],
@@ -48,7 +48,7 @@ export class ReservationAddComponent implements OnInit {
   /* This function loads all the beaches */
   listOfBeaches = () => {
     this.beachService.getBeaches()
-    .subscribe((resBeaches: Array<Beach>)=> {
+    .subscribe((resBeaches: Array<Beach>) => {
       for (const beach of resBeaches) {
         if (beach.beach_service) {
           this.beaches.push(beach);
@@ -71,7 +71,7 @@ export class ReservationAddComponent implements OnInit {
 
     const reservation: Reservation = {...this.reservationForm.value};
 
-    if(confirm("Sei sicuro di voler aggiungere questa prenotazione?") == true){   //add a confim dialog window 
+    if(confirm("Sei sicuro di voler aggiungere questa prenotazione?") == true){   //add a confim dialog window
       this.reservationService.addReservation(reservation)
         .subscribe(result => {
           this.reservationForm.reset();

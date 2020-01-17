@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
+import {formatDate} from '@angular/common';
 
 import {Reservation} from '../../../shared/models/Reservation';
 import {ReservationService} from '../../../shared/services/reservations.service';
@@ -10,7 +11,8 @@ import {BeachService} from '../../../shared/services/beaches.service';
 @Component({
   selector: 'app-reservation-detail',
   templateUrl: './reservation-detail.component.html',
-  styleUrls: ['./reservation-detail.component.css']
+  styleUrls: ['./reservation-detail.component.css'],
+  // encapsulation: ViewEncapsulation.None
 })
 export class ReservationDetailComponent implements OnInit {
 
@@ -18,6 +20,8 @@ export class ReservationDetailComponent implements OnInit {
   editResForm: FormGroup;
   beaches: Beach[] = [];
 
+  today;
+  disabledFlag = true;
   submitted = false;
 
   constructor(
@@ -32,6 +36,8 @@ export class ReservationDetailComponent implements OnInit {
 
   ngOnInit() {
     // console.log('param: ' + this.route.snapshot.params.idReservation);
+    this.today = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    console.log(this.today);
     this.loadComponent(this.route.snapshot.params.idReservation);
     this.loadBeaches();
   }
@@ -91,4 +97,9 @@ export class ReservationDetailComponent implements OnInit {
         console.error(err);
       });
   }
+
+  enableForm = () => {
+    this.disabledFlag = null;
+  }
+
 }

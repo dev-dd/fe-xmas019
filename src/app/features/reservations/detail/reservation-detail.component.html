@@ -1,84 +1,147 @@
-<div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light">
-
-    <a id="back-button" class="text-secondary nav-link nav-item active" [routerLink]="['../../list']">
+<html class="bg-light">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <a class="navbar-brand" [routerLink]="['/reservations/list']">
+    <img src="assets/img/eye.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+  </a>
+  <a class="navbar-brand" [routerLink]="['/reservations/list']">Sardinia Sun Spot - Admin Area</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <a id="back-button" class="text-secondary nav-link nav-item active" [routerLink]="['/reservations/list']">
       <i class="fa fa-arrow-left"></i>
     </a>
-
-    <a id="home-button" class="text-secondary nav-link nav-item active" [routerLink]="['../../../']">
+    <a id="logout-button" class="text-secondary nav-link nav-item active" [routerLink]="['/reservations/login']">
+      <i class="fa fa-power-off"></i>
+    </a>
+    <a id="home-button" class="text-secondary nav-link nav-item active" [routerLink]="['/']">
       <i class="fa fa-home"></i>
     </a>
+  </div>
+</nav>
 
-    <a class="navbar-brand">Modifica prenotazione #{{reservation.idReservation}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </nav>
-</div>
+<main role="main" class="col-sm-12 container maincontent">
 
-<div class="container">
-  <h5 class="my-4"></h5>
 
-  <div class="row">
-    <div class="col-md-12">
-      <form class="card p-3" [formGroup]="editResForm" (ngSubmit)="editReservation()">
 
-        <div class="form-group">
-          <label for="inputName">Nome</label>
-          <input type="text" formControlName="name_reservation" class="form-control" id="inputName" placeholder="Mario Rossi">
+  <div class="p-4 px-5 container rounded bg-info shadow-sm">
+    <div class="row py-2">
+      <div class="col-sm-6 text-left">
+        <div>
+          <h4 class="text-white">Prenotazione #{{reservation.idReservation}}</h4>
         </div>
-
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputEmail">E-mail</label>
-            <input type="email" formControlName="email" class="form-control" id="inputEmail" placeholder="userid@example.com">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputTel">Telefono</label>
-            <input type="text" formControlName="mobile" class="form-control" id="inputTel" placeholder="3331234567">
-          </div>
+      </div>
+      <div class="col-sm-6 text-right">
+        <div>
+          <button class="btn btn-secondary my-2 my-sm-0" (click)="enableForm()">Abilita modifiche</button>
         </div>
-
-        <div class="form-row">
-          <div class="form-group col-md-5">
-            <label for="inputDate">Data</label>
-            <input type="date" formControlName="date" class="form-control" id="inputDate">
-          </div>
-          <div class="form-group col-md-5">
-            <label for="inputBeach">Spiaggia</label>
-            <select id="inputBeach" formControlName="idBeach" class="form-control">
-              <option *ngFor="let beach of beaches" value="{{beach.idBeach}}">{{beach.name}}</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputQuantity">Quantità</label>
-            <input type="number" formControlName="quantity" class="form-control" id="inputQuantity" min="1" max="5">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="form-check" *ngIf="reservation.half_day">
-            <input class="form-check-input" type="checkbox" formControlName="half_day" id="checkHalfDayChecked" checked>
-            <label class="form-check-label" for="checkHalfDayChecked">
-              Mezza giornata
-            </label>
-          </div>
-          <div class="form-check" *ngIf="!reservation.half_day">
-            <input class="form-check-input" type="checkbox" formControlName="half_day" id="checkHalfDayUnchecked">
-            <label class="form-check-label" for="checkHalfDayUnchecked">
-              Mezza giornata
-            </label>
-          </div>
-        </div>
-
-
-        <div class="form-group text-center">
-          <button type="submit" class="col-md-9 btn btn-outline-info">Modifica prenotazione</button>
-          <button type="button" class="col-md-2 btn btn-outline-dark" (click)="deleteReservation()">Elimina prenotazione</button>
-        </div>
-
-      </form>
+      </div>
     </div>
   </div>
 
-</div>
+  <div class="container my-3 p-5 bg-white rounded shadow-sm">
+    <div class="row">
+      <div class="col-md-12">
+        <form [formGroup]="editResForm" (ngSubmit)="editReservation()">
+
+          <div class="col-md-12 justify-content-end form-group">
+          </div>
+
+          <div class="form-group" hidden>
+            <label for="inputName">Nome</label>
+            <input type="text" formControlName="name_reservation" class="form-control" id="inputName" placeholder="Mario Rossi" disabled>
+          </div>
+
+          <div class="form-group">
+            <label for="inputName">Nome</label>
+            <input type="text"
+                   formControlName="name_reservation"
+                   class="form-control"
+                   id="inputName"
+                   placeholder="Mario Rossi" [attr.disabled]="this.disabledFlag">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail">E-mail</label>
+              <input type="email"
+                     formControlName="email"
+                     class="form-control"
+                     id="inputEmail"
+                     placeholder="userid@example.com" [attr.disabled]="this.disabledFlag">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputTel">Telefono</label>
+              <input type="text"
+                     formControlName="mobile"
+                     class="form-control"
+                     id="inputTel"
+                     placeholder="3331234567" [attr.disabled]="this.disabledFlag">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <label for="inputDate">Data</label>
+              <input type="date"
+                     formControlName="date"
+                     class="form-control"
+                     min="{{this.today}}"
+                     id="inputDate" [attr.disabled]="this.disabledFlag">
+            </div>
+            <div class="form-group col-md-5">
+              <label for="inputBeach">Spiaggia</label>
+              <select id="inputBeach"
+                      formControlName="idBeach"
+                      class="form-control" [attr.disabled]="this.disabledFlag">
+                <option *ngFor="let beach of beaches" value="{{beach.idBeach}}">{{beach.name}}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputQuantity">Quantità</label>
+              <input type="number"
+                     formControlName="quantity"
+                     class="form-control"
+                     id="inputQuantity"
+                     min="1"
+                     max="5" [attr.disabled]="this.disabledFlag">
+            </div>
+          </div>
+
+          <div class="form-group text-center p-3">
+            <div class="form-check" *ngIf="reservation.half_day">
+              <input class="form-check-input"
+                     type="checkbox"
+                     formControlName="half_day"
+                     id="checkHalfDayChecked"
+                     checked [attr.disabled]="this.disabledFlag">
+              <label class="form-check-label" for="checkHalfDayChecked">
+                Mezza giornata
+              </label>
+            </div>
+            <div class="form-check" *ngIf="!reservation.half_day">
+              <input class="form-check-input"
+                     type="checkbox"
+                     formControlName="half_day"
+                     id="checkHalfDayUnchecked" [attr.disabled]="this.disabledFlag">
+              <label class="form-check-label" for="checkHalfDayUnchecked">
+                Mezza giornata
+              </label>
+            </div>
+          </div>
+
+
+          <div class="d-flex justify-content-around form-group">
+            <button type="submit" class="col-md-8 btn btn-outline-info" [attr.disabled]="this.disabledFlag">Modifica prenotazione</button>
+            <button type="button" class="col-md-3 btn btn-outline-danger" (click)="deleteReservation()" [attr.disabled]="this.disabledFlag">Elimina prenotazione</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</main>
+</html>

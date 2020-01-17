@@ -10,7 +10,7 @@ describe('ReservationDetailComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ReservationDetailComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
