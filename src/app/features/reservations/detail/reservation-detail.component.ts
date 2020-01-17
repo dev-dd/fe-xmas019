@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 
 import {Reservation} from '../../../shared/models/Reservation';
@@ -10,7 +10,8 @@ import {BeachService} from '../../../shared/services/beaches.service';
 @Component({
   selector: 'app-reservation-detail',
   templateUrl: './reservation-detail.component.html',
-  styleUrls: ['./reservation-detail.component.css']
+  styleUrls: ['./reservation-detail.component.css'],
+  // encapsulation: ViewEncapsulation.None
 })
 export class ReservationDetailComponent implements OnInit {
 
@@ -18,6 +19,7 @@ export class ReservationDetailComponent implements OnInit {
   editResForm: FormGroup;
   beaches: Beach[] = [];
 
+  disabledFlag = true;
   submitted = false;
 
   constructor(
@@ -91,4 +93,9 @@ export class ReservationDetailComponent implements OnInit {
         console.error(err);
       });
   }
+
+  enableForm = () => {
+    this.disabledFlag = null;
+  }
+
 }

@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Router} from '@angular/router';
 
-import { ReservationService } from '../../../shared/services/reservations.service';
-import { Reservation } from '../../../shared/models/Reservation';
-import { BeachService } from '../../../shared/services/beaches.service';
-import { Beach } from '../../../shared/models/Beach';
+import {ReservationService} from '../../../shared/services/reservations.service';
+import {Reservation} from '../../../shared/models/Reservation';
+import {BeachService} from '../../../shared/services/beaches.service';
+import {Beach} from '../../../shared/models/Beach';
 
 @Component({
   selector: 'app-reservation-list',
   templateUrl: './reservation-list.component.html',
-  styleUrls: ['./reservation-list.component.css']
+  styleUrls: ['./reservation-list.component.css'],
+  //encapsulation: ViewEncapsulation.None
 })
 export class ReservationListComponent implements OnInit {
   public reservations: Reservation[] = [];
@@ -21,6 +22,7 @@ export class ReservationListComponent implements OnInit {
   isFilterActive = false;
   filterDate: Date;
   filterBeach: string;
+  searchKey: string;
   filterBox = 0;
 
   constructor(
@@ -118,6 +120,30 @@ export class ReservationListComponent implements OnInit {
     console.log(this.filteredRes);
   }
 
+  search = () => {
+    console.log('search works! ' + this.searchKey);
+
+    if (!this.searchKey) {
+      return this.resetFilter();
+    }
+
+    this.filteredRes = [];
+
+    for (const reserv of this.reservations) {
+      if (reserv.beach_name.toLocaleLowerCase().includes(this.searchKey.toLocaleLowerCase()) ||
+          reserv.mobile.toLocaleLowerCase().includes(this.searchKey.toLocaleLowerCase()) ||
+          reserv.email.toLocaleLowerCase().includes(this.searchKey.toLocaleLowerCase()) ||
+          reserv.name_reservation.toLocaleLowerCase().includes(this.searchKey.toLocaleLowerCase())) {
+        this.filteredRes.push(reserv);
+      }
+    }
+
+    this.isFilterActive = true;
+    this.router.navigate([this]);
+    console.log(this.filteredRes);
+
+  }
+
   resetFilter = () => {
     this.isFilterActive = false;
     this.router.navigate([this]);
@@ -129,7 +155,7 @@ export class ReservationListComponent implements OnInit {
     if (!this.isFilterActive) {
       return 'btn btn-secondary my-2 my-sm-0 disabled';
     } else {
-      return 'btn btn-info my-2 my-sm-0';
+      return 'btn btn-secondary my-2 my-sm-0';
     }
   }
 

@@ -75,7 +75,7 @@ export class ReservationAddComponent implements OnInit {
       this.reservationService.addReservation(reservation)
         .subscribe(result => {
           this.reservationForm.reset();
-          this.router.navigate(['reservations/add']);
+          this.router.navigate(['']);
         }, error => {
           console.error(error);
         });

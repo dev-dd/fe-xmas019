@@ -1,0 +1,12 @@
+<html>
+  <body class="text-center">
+    <form class="form-signin" (ngSubmit)="login()">
+      <img class="mb-4" src="assets/img/eye-bl.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Beach Observer</h1>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="pwd" required [(ngModel)]="pwd">
+      <button class="btn btn-lg btn-info btn-block" type="submit">Accedi</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+    </form>
+  </body>
+</html>

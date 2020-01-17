@@ -13,7 +13,6 @@
 
 <!-- Navbar navbar-light bg-light -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
-	<div class="container">
 	  <a class="navbar-brand" href="#"> Sardinia Sun Spot</a> <i class="fa fa-umbrella-beach"></i>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -31,12 +30,11 @@
 		  <li class="nav-item">
 			<a class="nav-link" href="#" >Contatti</a>
 		  </li>
-		  <li class="nav-item gestore">
-			<a class="nav-link" href="http://localhost:4200/reservations/list">Sei un gestore? <br> Clicca qui!</a>
+		  <li class="nav-item">
+			<a class="nav-link gestore" href="http://localhost:4200/reservations/list">Sei un gestore? <br> Clicca qui!</a>
 		  </li>
 		</ul>
 	  </div>
-	</div>
 </nav>
 <body> 
 	<!-- Page Content -->
@@ -48,7 +46,7 @@
 					<div class="col-md-12">
 						<div class="form-group">
 							<span class="form-label">Nominativo</span>
-							<input class="form-control" type="text" formControlName="name_reservation" name="name_reservation" required>
+							<input class="form-control" type="text" formControlName="name_reservation" name="name_reservation" placeholder="inserisci il tuo nome e cognome" required>
 						</div>
 					</div>
 				</div>

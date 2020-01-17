@@ -6,6 +6,7 @@ import { ReservationAddComponent } from './add/reservation-add.component';
 import { ReservationUpdComponent } from './upd/reservation-upd.component';
 import { ReservationListComponent } from './list/reservation-list.component';
 import { ReservationDetailComponent } from './detail/reservation-detail.component';
+import {ReservationLoginComponent} from './login/reservation-login.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'upd/:email',
     component: ReservationUpdComponent,
+  },
+  {
+    path: 'login',
+    component: ReservationLoginComponent,
   },
   {
     path: 'list',
@@ -38,5 +43,4 @@ const routes: Routes = [
 
 export class FeatureReservationsRoutingModule {
 }
-
 

@@ -81,7 +81,7 @@ export class ReservationUpdComponent implements OnInit {
   deleteReservation(email) {
     this.reservationService.deleteReservation(email)
       .subscribe(data => {
-        this.router.navigate(['/reservations/add']);
+        this.router.navigate(['']);
       }, (err) => {
         console.log(err);
       });
