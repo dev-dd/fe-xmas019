@@ -23,6 +23,7 @@ export class ReservationListComponent implements OnInit {
   isFilterActive = false;
   filterDate: Date;
   filterBeach: string;
+  filterHalfDay;
   searchKey: string;
   filterBox = 0;
 
@@ -98,7 +99,7 @@ export class ReservationListComponent implements OnInit {
       }
     }
     this.isFilterActive = true;
-    this.router.navigate([this]);
+    // this.router.navigate([this]);
     console.log(this.filteredRes);
   }
 
@@ -117,8 +118,42 @@ export class ReservationListComponent implements OnInit {
       }
     }
     this.isFilterActive = true;
-    this.router.navigate([this]);
+    // this.router.navigate([this]);
     console.log(this.filteredRes);
+  }
+
+  filterReservationsByHalfDay = () => {
+    console.log('filterReservationsByHalfDay works! ' + this.filterHalfDay);
+
+    // if (this.filterHalfDay == 0) {
+    //   console.log('è 0');
+    // } else if (this.filterHalfDay == 1) {
+    //   console.log('è 1');
+    // } else {
+    //   console.log('è boh!');
+    // }
+
+    this.filteredRes = [];
+
+    // tslint:disable-next-line:triple-equals
+    if (this.filterHalfDay == 0) {
+      for (const reserv of this.reservations) {
+        if (reserv.half_day === false) {
+          this.filteredRes.push(reserv);
+        }
+      }
+      // tslint:disable-next-line:triple-equals
+    } else if (this.filterHalfDay == 1) {
+      for (const reserv of this.reservations) {
+        if (reserv.half_day === true) {
+          this.filteredRes.push(reserv);
+        }
+      }
+    }
+
+    this.isFilterActive = true;
+    console.log(this.filteredRes);
+    // this.router.navigate([this]);
   }
 
   search = () => {
@@ -147,7 +182,7 @@ export class ReservationListComponent implements OnInit {
 
   resetFilter = () => {
     this.isFilterActive = false;
-    this.router.navigate([this]);
+    //this.router.navigate([this]);
   }
 
   getInfoClass = (value: boolean) => value ? 'fa fa-check' : '';
