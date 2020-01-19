@@ -35,33 +35,59 @@
 <body>
     <div class="container">
 		<div class="d-flex flex-row justify-content-center">
-			<div *ngIf="reservation; else loading">
+			<div *ngIf="loaded && reservations.length > 0; else noloaded" id="loadedReservations">
 				<div class="card reservDetails rounded bd-highlight">
 					<div class="card-body">
-						<h5 class="card-title">Ciao {{reservation.name_reservation}}!</h5>
+						<h5 class="card-title">Ciao {{reservations[reservations.length-1].name_reservation}}!</h5>
 						<h6 class="card-subtitle mb-2 text-muted" style="padding-bottom: 2%;">Ecco la tua ultima prenotazione</h6>
 						<div class="row">
 							<div class="col-md-7">
-								<p class="card-text"> <strong>Data prenotazione: </strong> {{reservation.date | date: 'dd-MM-yyyy'}}</p>
+								<p class="card-text"> <strong>Data prenotazione: </strong> {{reservations[reservations.length-1].date | date: 'dd-MM-yyyy'}}</p>
 							</div>
 							<div class="col-md-5">
-								<p class="card-text"> <strong>Spiaggia: </strong> {{beaches[reservation.idBeach-1].name}}</p>									
+								<p class="card-text"> <strong>Spiaggia: </strong> {{reservations[reservations.length-1].beach_name}}</p>							
 							</div>	
 						</div>
 						<div class="row">
 							<div class="col-md-7">
-								<p class="card-text"> <strong>Status prenotazione: </strong> <mark>confermato</mark></p>									
+								<p class="card-text"> <strong>Status prenotazione: </strong> <mark>attivo</mark></p>									
 							</div>
 							<div class="col-md-5">
-								<p class="card-text"> <strong>Info: </strong> {{reservation.quantity}} ombrellone + {{reservation.quantity*2}} lettini</p>
+								<p class="card-text"> <strong>Info: </strong> {{reservations[reservations.length-1].quantity}} ombrellone + {{reservations[reservations.length-1].quantity*2}} lettini</p>
 							</div>
 						</div>
 						<div class="d-flex flex-row-reverse elimination">
-							<button class="btn btn-danger" type="submit" (click)="deleteReservation(reservation.email)">cancella</button>
+							<button class="btn btn-danger" type="submit" (click)="deleteReservation(reservations[reservations.length-1].idReservation)">cancella</button>
 						</div>
 					</div>
 				</div>
 				<!-- option collaps -->
+				<div class="accordion" id="accordionExample" >
+					<div class="card z-depth-0 bordered" *ngFor="let reservation of reservations.slice(0, reservations.length-1)">
+					  <div class="card-header" id="headingOne">
+						<h5 class="mb-0">
+						  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+							aria-expanded="true" aria-controls="collapseOne">
+							Prenotazione del: {{reservation.date | date: 'dd-MM-yyyy'}}
+						  </button>
+						</h5>
+					  </div>
+					  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+						data-parent="#accordionExample">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-5">
+									<p class="card-text text-muted"> Status prenotazione: terminato </p>									
+								</div>
+								<div class="col-md-5">
+									<p class="card-text text-muted"> Spiaggia: {{reservation.beach_name}}</p>
+								</div>
+							</div>
+						</div>
+					  </div>
+					</div>
+				</div>
+				<!--
 				<div class="accordion" id="accordionExample">
 					<div class="card z-depth-0 bordered">
 					  <div class="card-header" id="headingOne">
@@ -109,17 +135,24 @@
 					  </div>
 					</div>
 				</div>
-
+				-->
 				<!-- option collaps -->
 			</div>
-			<ng-template #loading>
+			<ng-template #noloaded>
 				<div class=" card noReservation rounded bd-highlight text-center">
 					<div class="card-body">
 						<h5 class="card-title" style="letter-spacing: 1px; text-transform: uppercase;">Spiacente...</h5>
 						<h6 class="card-subtitle mb-2" style="padding-bottom: 2%;">non ci sono prenotazioni corrispondenti a questa email !</h6>
 					</div>
 				</div>
-            </ng-template>
+			</ng-template>
+			<div *ngIf="deleted">
+				<div class=" card reservationDeleted rounded bd-highlight text-center">
+					<div class="card-body">
+						<h5 class="card-title" style="letter-spacing: 1px; text-transform: uppercase;">La tua prenotazione è stata cancellata</h5>
+					</div>
+				</div>	
+			</div>
 		</div>
 	</div>
 </body>

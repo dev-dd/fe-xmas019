@@ -15,10 +15,14 @@ export class ReservationService {
   getReservations = () => {
     return this.http.get<Array<Reservation>>(this.baseUrl);
   };
+  getReservationsByEmail = (email: string) => {
+    return this.http.get<Array<Reservation>>(`${this.baseUrl}/byMail/${email}`);
+  };
 
+  /*
   getReservationByEmail = (email) => {
     return this.http.get<Reservation>(`${this.baseUrl}/byMail/${email}`);
-  };
+  };*/
 
   getReservationById = (idReservation: number) => {
     return this.http.get<Reservation>(`${this.baseUrl}/byId/${idReservation}`);
@@ -32,9 +36,10 @@ export class ReservationService {
     return this.http.put<Reservation>(`${this.baseUrl}/${reservation.idReservation}`, { ...reservation });
   }
 
+  /*
   deleteReservation = (email) => {
     return this.http.delete(`${this.baseUrl}/${email}`);
-  };
+  };*/
 
   deleteReservationById = (idReservation: number) => {
     return this.http.delete(`${this.baseUrl}/id/${idReservation}`);

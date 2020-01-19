@@ -22,7 +22,7 @@ export class BeachesListComponent implements OnInit {
     private sortService: SortService,
     private beachService: BeachService,
     private weatherService: WeatherService,
-    private trafficService: TrafficService,
+    /*private trafficService: TrafficService,*/
     private router: Router
   ) {
   }

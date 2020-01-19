@@ -32,7 +32,11 @@
                 <div class="col-md-3 text-center">
                     <button type="submit" (click)="goToReservationDetails(email)" class="btn">cerca</button>
 				</div>
-			</div>
+            </div>
+            <div class="row justify-content-end align-items-end">
+                <a id="adminArea" [routerLink]="['/reservations/login']">Sei un gestore? <br> Clicca qui!</a>
+                <!--<p id="adminArea"> Sei un gestore? <br> Clicca qui! </p> -->   
+            </div>
         </div>
     </div>
 </div>

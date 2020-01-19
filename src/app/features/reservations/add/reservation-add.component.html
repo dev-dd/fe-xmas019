@@ -40,7 +40,7 @@
 	<!-- Page Content -->
 	<div class="container">
 	  <div class="d-flex flex-row justify-content-center">
-		<div class="booking-form rounded bd-highlight">
+		<div class="booking-form rounded bd-highlight" id="addedReservation">
 			<form [formGroup]="reservationForm" (ngSubmit)="addReservation()">
 				<div class="row">
 					<div class="col-md-12">
@@ -77,11 +77,11 @@
 						<div class="form-group">
 							<span class="form-label">Quantità *</span>
 							<select class="form-control" formControlName="quantity" name="quantity">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
+								<option value="1">1 - €15</option>
+								<option value="2">2 - €28</option>
+								<option value="3">3 - €42</option>
+								<option value="4">4 - €55</option>
+								<option value="5">5 - €73</option>
 							</select>
 							<span class="select-arrow"></span>
 						</div>
@@ -90,7 +90,8 @@
 						<div class="form-group" > 
 						  <span class="form-label">Scegli una spiaggia</span>
 						  <select class="form-control" formControlName="idBeach" name="idBeach" required>
-							  <option *ngFor="let beach of beaches" value="{{beach.idBeach}}">{{beach.name}}</option>
+								<option value="0" disabled selected="selected"> -- seleziona una spiaggia -- </option>
+								<option *ngFor="let beach of beaches" value="{{beach.idBeach}}">{{beach.name}} </option>
 							</select>
 						</div>
 					</div>
@@ -127,6 +128,14 @@
 					<div class="col-md-2"></div>
 				</div>
 			</form>
+		</div>
+		<div *ngIf="added">
+			<div class=" card confirmationAdd rounded bd-highlight text-center">
+				<div class="card-body">
+					<h5 class="card-title" style="letter-spacing: 1px; text-transform: uppercase;"> Grazie per la tua prenotazione!</h5>
+					<h6 class="card-subtitle mb-2" style="padding-bottom: 2%;"> Riceverai una email automatica di conferma per la tua richiesta.</h6>
+				</div>
+			</div>	
 		</div>
 	  </div>
 	</div>

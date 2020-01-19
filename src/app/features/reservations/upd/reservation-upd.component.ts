@@ -14,16 +14,18 @@ import { BeachService } from '../../../shared/services/beaches.service';
   styleUrls: ['./reservation-upd.component.css']
 })
 export class ReservationUpdComponent implements OnInit {
-  reservation : Reservation;
-  editReservationForm: FormGroup;
+  //reservation : Reservation;
+  reservations : Array<Reservation> = [];
   beaches: Beach[] = [];
   pipe = new DatePipe('en-US');
   submitted = false;
+  loaded = false;
+  deleted = false;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder,
+    //private formBuilder: FormBuilder,
     private reservationService: ReservationService,
     private beachService: BeachService
   ) { 
@@ -32,25 +34,36 @@ export class ReservationUpdComponent implements OnInit {
 
   ngOnInit() {
     this.getReservationDetail(this.route.snapshot.params.email);    //upload the corresponding reservation
-    this.loadBeaches();     //upload all beaches in order to get the beaches names
+    this.loadBeaches();     //upload all beaches in order to get the beaches photo
   }
   
   /* This function loads the reservation's details if the email passed belongs to the reservation's table */
-  getReservationDetail(email: string) {
+  /*getReservationDetail(email: string) {
     this.reservationService.getReservationByEmail(email)
     .subscribe((data: Reservation) => {
       this.reservation = data;
-      this.editReservationForm = this.formBuilder.group({
-        idReservation: [data.idReservation],
-        idBeach: [data.idBeach],
-        name_reservation: [data.name_reservation],
-        email: [data.email],
-        mobile: [data.mobile],
-        date: [data.date],
-        quantity: [data.quantity],
-        half_day: [data.half_day]
-      });
     });
+  }*/
+
+  getReservationDetail = (email: string) => {
+    this.loadBeaches();
+    this.reservationService.getReservationsByEmail(email)
+      .subscribe((resReservations: Array<Reservation>) => {
+        this.reservations = resReservations;
+        this.loaded = true;
+        // recupera il nome della spiaggia e lo inserisce nel campo beach_name della prenotazione
+        for (const reserv of this.reservations) {
+          for (const beach of this.beaches) {
+            if (reserv.idBeach === beach.idBeach) {
+              reserv.beach_name = beach.name;
+            }
+          }
+        }
+        // console.log(this.reservations);
+      }, err => {
+        console.log(err);
+        this.loaded = true;
+      });
   }
 
   /* This function loads all beaches */
@@ -78,10 +91,12 @@ export class ReservationUpdComponent implements OnInit {
   };*/
 
   /* This function allows to the user to delete a reservation */
-  deleteReservation(email) {
-    this.reservationService.deleteReservation(email)
+  deleteReservation(idReservation: number) {
+    this.reservationService.deleteReservationById(idReservation)
       .subscribe(data => {
-        this.router.navigate(['']);
+        document.getElementById("loadedReservations").style.display = "none";
+        this.deleted = true;
+        //this.router.navigate(['']);
       }, (err) => {
         console.log(err);
       });
